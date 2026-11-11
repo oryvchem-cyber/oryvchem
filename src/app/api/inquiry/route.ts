@@ -6,7 +6,7 @@ import { clientIp, hits, record } from "@/lib/ratelimit";
 
 export const runtime = "nodejs";
 
-const TO = process.env.CONTACT_TO_EMAIL ?? "Chorfihouda55@gmail.com";
+const TO = process.env.CONTACT_TO_EMAIL ?? "oryvchem@gmail.com";
 
 type Payload = {
   type?: "quote" | "callback";
