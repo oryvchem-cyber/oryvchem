@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Archivo, IBM_Plex_Sans, IBM_Plex_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { notFound } from "next/navigation";
 import { locales, localeMeta, isLocale } from "@/i18n/config";
 import { getDict } from "@/lib/content";
@@ -15,7 +15,8 @@ import { bannerFor, getBanner, getSite } from "@/lib/settings";
 import { SITE } from "@/lib/site";
 import "../globals.css";
 
-const head = Space_Grotesk({ subsets: ["latin"], variable: "--f-head", display: "swap" });
+// Headlines: Archivo with its width axis, set slightly expanded for an industrial, stencilled-crate feel.
+const head = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--f-head", display: "swap" });
 const sans = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--f-sans", display: "swap" });
 // Not preloaded: mono is only used for small labels, and Arabic would otherwise be preloaded on en/fr pages too
 // (preloads are per layout, not per locale). Both still load via @font-face with display: swap.

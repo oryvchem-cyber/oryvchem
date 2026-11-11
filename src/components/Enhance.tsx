@@ -3,10 +3,11 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const TARGETS =
-  ".section-head, .cat-card, .market, .step, .facts, .compliance-list li, .compliance-note, .faq details, .contact-info, .inquiry, .prose";
-
-/** Scroll-reveal + header shadow. Pure progressive enhancement: without JS everything stays visible. */
+/**
+ * Progressive enhancement only (without JS everything is visible and static):
+ * - header gets a "scrolled" state
+ * - the process route draws itself once, the first time it scrolls into view
+ */
 export function Enhance() {
   const pathname = usePathname();
 
@@ -18,23 +19,23 @@ export function Enhance() {
   }, []);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+    const steps = document.querySelector<HTMLElement>(".steps");
+    if (!steps) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+      steps.classList.add("drawn");
+      return;
+    }
+    steps.classList.add("will-draw");
     const io = new IntersectionObserver(
       (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            e.target.classList.add("in");
-            io.unobserve(e.target);
-          }
+        if (entries.some((e) => e.isIntersecting)) {
+          steps.classList.add("drawn");
+          io.disconnect();
         }
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+      { threshold: 0.35 },
     );
-    document.querySelectorAll<HTMLElement>(TARGETS).forEach((el, i) => {
-      el.classList.add("reveal");
-      el.style.setProperty("--d", `${(i % 4) * 70}ms`);
-      io.observe(el);
-    });
+    io.observe(steps);
     return () => io.disconnect();
   }, [pathname]);
 
