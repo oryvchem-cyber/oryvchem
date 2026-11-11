@@ -247,16 +247,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
           <div className="hero-visual">
           <MaterialWall locale={locale} />
-          <div className="coa-card" role="img" aria-label={`${d.hero.coa.title} — ${d.hero.coa.sample}`}>
-            <div className="coa-head">{d.hero.coa.title} <span className="tag">{d.hero.coa.verified}</span></div>
-            <div className="coa-body">
-              {d.hero.coa.rows.map(([k, v]) => (
-                <div className="coa-row" key={k}><span className="k">{k}</span><span className="v">{v}</span></div>
-              ))}
-              <div className="coa-stamp"><span className="check">✓</span> {d.hero.coa.stamp}</div>
-              <div className="coa-sample">{d.hero.coa.sample}</div>
-            </div>
-          </div>
           </div>
         </div>
       </section>
