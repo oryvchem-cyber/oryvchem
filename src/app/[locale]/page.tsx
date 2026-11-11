@@ -11,6 +11,7 @@ import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/lib/jsonld";
 import { homeSchema } from "@/lib/schema";
 import { InquiryForm } from "@/components/InquiryForm";
+import { MaterialWall, CATEGORY_COVERS } from "@/components/MaterialWall";
 
 export const revalidate = 300;
 
@@ -55,8 +56,15 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
         <div className="cat-grid">
           {cats.map((c) => {
+            const cover = CATEGORY_COVERS[c.slug];
             return (
-              <Link key={c.slug} href={`/${locale}/products/${c.slug}`} className="cat-card">
+              <Link key={c.slug} href={`/${locale}/products/${c.slug}`} className={cover ? "cat-card has-photo" : "cat-card"}>
+                {cover && (
+                  <span className="cat-photo">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={`/media/${cover}`} alt="" loading="lazy" decoding="async" />
+                  </span>
+                )}
                 {c.code && <span className="cat-tab">{c.code}</span>}
                 <h3>{c.name}</h3>
                 <p>{c.short}</p>
@@ -96,7 +104,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="section-label">{d.process.label}</div>
           <h2 className="section-title">{d.process.title}</h2>
         </div>
-        <ol className="steps">
+        <ol className="steps" style={{ "--n": d.process.steps.length } as React.CSSProperties}>
           {d.process.steps.map((s, i) => (
             <li className="step" key={s.t}>
               <div className="num">{String(i + 1).padStart(2, "0")}</div>
@@ -221,24 +229,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
       {/* HERO */}
       <section className="hero">
-        <div className="hero-bg" aria-hidden="true">
-          <svg viewBox="0 0 600 600" className="molecule">
-            <g fill="none" stroke="currentColor" strokeWidth="1.2">
-              <polygon points="300,120 410,183 410,309 300,372 190,309 190,183" />
-              <polygon points="410,183 520,120 600,183 600,309 520,372 410,309" opacity=".6" />
-              <polygon points="190,309 80,372 0,309 0,183 80,120 190,183" opacity=".6" />
-              <polygon points="300,372 410,435 410,561 300,600 190,561 190,435" opacity=".4" />
-              <line x1="300" y1="120" x2="300" y2="20" opacity=".5" />
-            </g>
-            <g fill="currentColor">
-              <circle cx="300" cy="120" r="7" /><circle cx="410" cy="183" r="7" /><circle cx="410" cy="309" r="7" />
-              <circle cx="300" cy="372" r="7" /><circle cx="190" cy="309" r="7" /><circle cx="190" cy="183" r="7" />
-              <circle cx="520" cy="120" r="5" /><circle cx="80" cy="372" r="5" /><circle cx="300" cy="20" r="5" />
-            </g>
-          </svg>
-        </div>
         <div className="wrap hero-grid">
-          <div>
+          <div className="hero-copy">
             <div className="eyebrow"><span className="dot" />{d.hero.eyebrow}</div>
             <h1 className="headline">{d.hero.title}</h1>
             <p className="lede">{d.hero.lede}</p>
@@ -253,6 +245,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               ))}
             </ul>
           </div>
+          <div className="hero-visual">
+          <MaterialWall locale={locale} />
           <div className="coa-card" role="img" aria-label={`${d.hero.coa.title} — ${d.hero.coa.sample}`}>
             <div className="coa-head">{d.hero.coa.title} <span className="tag">{d.hero.coa.verified}</span></div>
             <div className="coa-body">
@@ -262,6 +256,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <div className="coa-stamp"><span className="check">✓</span> {d.hero.coa.stamp}</div>
               <div className="coa-sample">{d.hero.coa.sample}</div>
             </div>
+          </div>
           </div>
         </div>
       </section>
