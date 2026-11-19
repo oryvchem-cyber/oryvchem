@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "seo:check": "node scripts/seo-check.mjs",
-    "prebuild": "node scripts/import-live.mjs"
+    "seo:check": "node scripts/seo-check.mjs"
   },
   "dependencies": {
     "@neon/config": "^1.9.3",
