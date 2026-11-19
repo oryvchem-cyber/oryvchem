@@ -19,9 +19,9 @@ function cors(req: Request): Record<string, string> {
     : {};
 }
 
-function authorised(req: Request): boolean {
+function authorised(req: Request, fromForm?: string): boolean {
   const want = process.env.IMPORT_SECRET;
-  const got = req.headers.get("x-import-secret") ?? "";
+  const got = fromForm ?? req.headers.get("x-import-secret") ?? "";
   if (!want || want.length < 16) return false;
   const a = Buffer.from(want);
   const b = Buffer.from(got);
@@ -48,11 +48,24 @@ export async function OPTIONS(req: Request) {
 
 export async function POST(req: Request) {
   const headers = cors(req);
-  if (!authorised(req)) return Response.json({ error: "Not allowed" }, { status: 401, headers });
+  // Accepts JSON (with x-import-secret header) or a plain HTML form post with `secret` and `payload` fields.
+  let p: Payload;
+  let formSecret: string | undefined;
+  if ((req.headers.get("content-type") ?? "").includes("application/x-www-form-urlencoded")) {
+    const f = await req.formData();
+    formSecret = String(f.get("secret") ?? "");
+    try {
+      p = JSON.parse(String(f.get("payload") ?? "{}")) as Payload;
+    } catch {
+      return Response.json({ error: "Bad payload" }, { status: 400, headers });
+    }
+  } else {
+    p = (await req.json()) as Payload;
+  }
+  if (!authorised(req, formSecret)) return Response.json({ error: "Not allowed" }, { status: 401, headers });
   const sql = await db();
   if (!sql) return Response.json({ error: "No database configured" }, { status: 500, headers });
 
-  const p = (await req.json()) as Payload;
   const done: Record<string, number> = {};
   const errors: string[] = [];
 
