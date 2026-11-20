@@ -6,7 +6,8 @@ import { url } from "@/lib/seo";
 import { allPublishedSlugs } from "@/lib/posts";
 import { allPublishedPages } from "@/lib/pages";
 
-export const revalidate = 300;
+// Rendered per request so a newly published article is listed at once; the DB reads are cached (CONTENT_TAG).
+export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const paths = ["", "/insights", ...(await getCategorySlugs()).map((s) => `/products/${s}`)];
