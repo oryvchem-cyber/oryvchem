@@ -547,9 +547,10 @@ footer a:hover { color: #fff; }
 
 /* ---------- payment & quality: the order as a journey ---------- */
 .payment { background: var(--harbor-2); color: var(--on-dark); position: relative; overflow: hidden; overflow: clip; }
-.payment::before { content: ""; position: absolute; inset: auto -10% -60% auto; width: 620px; height: 620px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(108, 200, 179, 0.16), transparent 65%); pointer-events: none; }
-[dir="rtl"] .payment::before { inset: auto auto -60% -10%; }
+/* glow stays inside the band horizontally, so the band can never scroll sideways */
+.payment::before { content: ""; position: absolute; inset: auto 0 -40% 0; height: 620px; pointer-events: none;
+  background: radial-gradient(circle at 85% 70%, rgba(108, 200, 179, 0.16), transparent 45%); }
+[dir="rtl"] .payment::before { background: radial-gradient(circle at 15% 70%, rgba(108, 200, 179, 0.16), transparent 45%); }
 .payment .section-label { color: var(--teal-glow); }
 .payment .section-title { color: #f6f8f6; }
 .payment .section-head p { color: var(--on-dark-muted); max-width: 46ch; }
