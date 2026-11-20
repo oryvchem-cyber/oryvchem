@@ -243,6 +243,10 @@ export const en = {
       { q: "Do you ship dangerous goods?", a: "Non-hazardous industrial chemicals ship worldwide. Hazardous / DG categories are handled by prior consultation, with IMDG/IATA classification confirmed before freight is booked." },
       { q: "Do you serve Arabic- and French-speaking buyers?", a: "Yes. We communicate and quote in English, Arabic and French, and prepare documents for Gulf, North African, Francophone African and European customs." },
       { q: "What is the minimum order quantity?", a: "MOQs are negotiated directly with each supplier. We handle single-container trial orders as well as recurring monthly-tonnage contracts." },
+      { q: "Do you only source from Guangdong?", a: "No. Our office is in Foshan, Guangdong, but we source from manufacturers all over China, compare them for you, and ship the goods to your port." },
+      { q: "What are Oryvchem's payment terms?", a: "50% deposit when you confirm the order, and the 50% balance after the goods pass our quality check, before they are released for shipping." },
+      { q: "Do you check quality before shipment?", a: "Yes. We take care of quality control: we check the goods against the agreed specification before shipment and send you the results. The balance is only due once the goods pass this check." },
+      { q: "Who runs Oryvchem?", a: "Oryvchem is led by its CEO, Houda Chorfi." },
     ],
   },
   cta: {

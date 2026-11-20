@@ -33,6 +33,7 @@ export function organizationSchema(locale: Locale, d: Dict, cats: Category[], si
         geo: { "@type": "GeoCoordinates", latitude: SITE.geo.lat, longitude: SITE.geo.lng },
         areaServed: "Worldwide",
         knowsLanguage: ["en", "ar", "fr", "zh"],
+        employee: { "@type": "Person", name: "Houda Chorfi", jobTitle: "CEO", worksFor: { "@id": orgId } },
         contactPoint: [
           {
             "@type": "ContactPoint",
@@ -42,6 +43,9 @@ export function organizationSchema(locale: Locale, d: Dict, cats: Category[], si
             areaServed: ["SA", "AE", "QA", "KW", "OM", "EG", "MA", "DZ", "TN", "FR", "BE", "SN", "CI", "Worldwide"],
             availableLanguage: ["English", "Arabic", "French", "Chinese"],
           },
+          ...(site.phone2
+            ? [{ "@type": "ContactPoint", telephone: site.phone2, contactType: "sales", areaServed: ["MA", "DZ", "TN"], availableLanguage: ["Arabic", "French", "English"] }]
+            : []),
         ],
         knowsAbout: cats.map((c) => c.name),
         makesOffer: cats.map((c) => ({

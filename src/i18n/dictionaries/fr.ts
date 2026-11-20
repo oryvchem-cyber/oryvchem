@@ -245,6 +245,10 @@ export const fr: Dict = {
       { q: "Expédiez-vous des marchandises dangereuses ?", a: "Les produits chimiques industriels non dangereux sont expédiés dans le monde entier. Les catégories dangereuses (DG) sont traitées sur consultation préalable, avec classification IMDG/IATA confirmée avant la réservation du fret." },
       { q: "Servez-vous les acheteurs francophones et arabophones ?", a: "Oui. Nous communiquons et établissons les devis en français, anglais et arabe, et préparons des documents adaptés aux douanes du Maghreb, d'Afrique francophone, du Golfe et d'Europe." },
       { q: "Quelle est la quantité minimale de commande ?", a: "Les MOQ sont négociés directement avec chaque fournisseur. Nous traitons aussi bien un conteneur d'essai que des contrats mensuels récurrents en tonnage." },
+      { q: "Sourcez-vous uniquement dans le Guangdong ?", a: "Non. Notre bureau est à Foshan (Guangdong), mais nous sourçons auprès de fabricants dans toute la Chine, les comparons pour vous et expédions la marchandise jusqu'à votre port." },
+      { q: "Quelles sont les conditions de paiement d'Oryvchem ?", a: "Un acompte de 50 % à la confirmation de la commande, et le solde de 50 % une fois que les marchandises ont passé notre contrôle qualité, avant leur expédition." },
+      { q: "Contrôlez-vous la qualité avant l'expédition ?", a: "Oui. Nous prenons en charge le contrôle qualité : nous vérifions les marchandises selon la spécification convenue avant expédition et vous envoyons les résultats. Le solde n'est dû qu'une fois ce contrôle passé." },
+      { q: "Qui dirige Oryvchem ?", a: "Oryvchem est dirigée par sa directrice générale, Houda Chorfi." },
     ],
   },
   cta: {
