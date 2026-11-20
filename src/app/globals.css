@@ -546,7 +546,7 @@ footer a:hover { color: #fff; }
 .btn-primary:hover, .nav-cta:hover { transform: translateY(-1px); }
 
 /* ---------- payment & quality: the order as a journey ---------- */
-.payment { background: var(--harbor-2); color: var(--on-dark); position: relative; overflow: hidden; }
+.payment { background: var(--harbor-2); color: var(--on-dark); position: relative; overflow: hidden; overflow: clip; }
 .payment::before { content: ""; position: absolute; inset: auto -10% -60% auto; width: 620px; height: 620px; border-radius: 50%;
   background: radial-gradient(circle, rgba(108, 200, 179, 0.16), transparent 65%); pointer-events: none; }
 [dir="rtl"] .payment::before { inset: auto auto -60% -10%; }
