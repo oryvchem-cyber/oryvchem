@@ -171,21 +171,27 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     </section>
     ),
     payment: (
-    <section id="payment">
-      <div className="wrap compliance-grid">
-        <div>
+    <section id="payment" className="payment">
+      <div className="wrap">
+        <div className="section-head">
           <div className="section-label">{d.payment.label}</div>
           <h2 className="section-title">{d.payment.title}</h2>
-          <p className="muted">{d.payment.intro}</p>
+          <p>{d.payment.intro}</p>
         </div>
-        <ul className="compliance-list">
-          {d.payment.items.map((it) => (
-            <li key={it.t}>
-              <span className="icon" />
-              <div><strong>{it.t}</strong><span>{it.d}</span></div>
-            </li>
-          ))}
-        </ul>
+        <ol className="pay-track" style={{ "--n": d.payment.items.length } as React.CSSProperties}>
+          <li className="pay-cargo" aria-hidden="true" />
+          {d.payment.items.map((it, i) => {
+            const pct = it.t.match(/\d+\s?%/)?.[0];
+            return (
+              <li className="pay-stop" key={it.t}>
+                <span className="pay-dot">{String(i + 1).padStart(2, "0")}</span>
+                {pct ? <b className="pay-pct" dir="ltr">{pct.replace(/\s/, "")}</b> : <b className="pay-pct pay-pct-blank" aria-hidden="true" />}
+                <h3>{it.t}</h3>
+                <p>{it.d}</p>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </section>
     ),
