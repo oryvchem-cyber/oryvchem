@@ -203,6 +203,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <dd>{d.contactInfo.officeV}</dd>
             <dt>{d.contactInfo.phone}</dt>
             <dd><a href={site.phoneHref} dir="ltr">{site.phone}</a></dd>
+            {site.phone2 && <dd><a href={site.phone2Href} dir="ltr">{site.phone2}</a></dd>}
             <dt>{d.contactInfo.email}</dt>
             <dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
             <dt>{d.contactInfo.response}</dt>

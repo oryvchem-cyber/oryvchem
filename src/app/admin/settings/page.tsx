@@ -28,6 +28,7 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
         <p className="muted small">Shown in the header, footer, contact section, WhatsApp button, llms.txt and the structured data Google reads.</p>
         <div className="row2">
           <label>Phone<input name="phone" defaultValue={stored.phone ?? ""} placeholder={def.phone} dir="ltr" /></label>
+          <label>Second phone (type - to hide)<input name="phone2" defaultValue={stored.phone2 ?? ""} placeholder={def.phone2} dir="ltr" /></label>
           <label>WhatsApp number<input name="whatsappNumber" defaultValue={stored.whatsappNumber ? `+${stored.whatsappNumber}` : ""} placeholder={`+${def.whatsapp.replace("https://wa.me/", "")}`} dir="ltr" /></label>
         </div>
         <label>Public contact email<input name="email" type="email" defaultValue={stored.email ?? ""} placeholder={def.email} dir="ltr" /></label>

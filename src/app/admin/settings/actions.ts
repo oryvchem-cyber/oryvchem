@@ -29,9 +29,11 @@ const httpsUrl = (v: string) => {
 export async function saveSite(fd: FormData) {
   await requireAdmin();
   const phone = str(fd.get("phone"), 30);
+  const phone2 = str(fd.get("phone2"), 30);
   const wa = str(fd.get("whatsappNumber"), 30);
   const email = str(fd.get("email"), 120);
   if (phone && !/^\+?[\d\s()-]{6,25}$/.test(phone)) back("error=" + encodeURIComponent("Phone may only contain digits, +, spaces, brackets and dashes."));
+  if (phone2 && phone2 !== "-" && !/^\+?[\d\s()-]{6,25}$/.test(phone2)) back("error=" + encodeURIComponent("Second phone may only contain digits, +, spaces, brackets and dashes (or - to hide it)."));
   const waDigits = wa.replace(/[\s+()-]/g, "");
   if (wa && !/^\d{7,15}$/.test(waDigits)) back("error=" + encodeURIComponent("WhatsApp number must be 7–15 digits with country code, e.g. +86 159 0034 0902."));
   if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) back("error=" + encodeURIComponent("Email address is not valid."));
@@ -46,6 +48,7 @@ export async function saveSite(fd: FormData) {
 
   const value: StoredSite = {};
   if (phone) value.phone = phone;
+  if (phone2) value.phone2 = phone2;
   if (waDigits) value.whatsappNumber = waDigits;
   if (email) value.email = email;
   for (const k of ["street", "locality", "region", "country"] as const) {

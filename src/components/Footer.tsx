@@ -29,6 +29,7 @@ export function Footer({ locale, d, cats, site }: { locale: Locale; d: Dict; cat
           <h3 className="foot-h">{d.nav.contact}</h3>
           <ul>
             <li><a href={site.phoneHref} dir="ltr">{site.phone}</a></li>
+            {site.phone2 && <li><a href={site.phone2Href} dir="ltr">{site.phone2}</a></li>}
             <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
             <li>{d.contactInfo.officeV}</li>
             {socialLinks(site).map((s) => (

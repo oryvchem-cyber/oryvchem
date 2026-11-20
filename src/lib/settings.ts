@@ -13,6 +13,9 @@ export type SiteSettings = {
   url: string;
   phone: string;
   phoneHref: string;
+  /** Second contact number (e.g. Morocco); empty string hides it. */
+  phone2: string;
+  phone2Href: string;
   whatsapp: string;
   email: string;
   address: { locality: string; region: string; country: string; street: string };
@@ -24,6 +27,7 @@ export type SiteSettings = {
 /** What the admin saves under settings.key = "site". Empty/missing fields fall back to the static SITE. */
 export type StoredSite = Partial<{
   phone: string;
+  phone2: string;
   whatsappNumber: string;
   email: string;
   street: string;
@@ -71,12 +75,15 @@ function parse(rows: Row[]): { site: StoredSite; banner: Banner } {
 
 export function mergeSite(stored: StoredSite): SiteSettings {
   const phone = stored.phone || SITE.phone;
+  const phone2 = stored.phone2 === "-" ? "" : stored.phone2 || SITE.phone2;
   const wa = stored.whatsappNumber ? stored.whatsappNumber.replace(/\D/g, "") : whatsappDigits(SITE.whatsapp);
   return {
     name: SITE.name,
     url: SITE.url,
     phone,
     phoneHref: phoneToHref(phone),
+    phone2,
+    phone2Href: phone2 ? phoneToHref(phone2) : "",
     whatsapp: `https://wa.me/${wa}`,
     email: stored.email || SITE.email,
     address: {

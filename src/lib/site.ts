@@ -3,6 +3,7 @@ export const SITE = {
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.oryvchem.com").replace(/\/$/, ""),
   phone: "+86 159 0034 0902",
   phoneHref: "tel:+8615900340902",
+  phone2: "+212 623 362 401",
   whatsapp: "https://wa.me/8615900340902",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "inquiries@oryvchem.com",
   updated: "2026-10-24",
