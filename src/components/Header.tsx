@@ -7,7 +7,8 @@ import type { Dict } from "@/i18n/dictionaries";
 
 export function Header({ locale, t, phone, phoneHref, pages = [] }: { locale: Locale; t: Dict["nav"]; phone: string; phoneHref: string; pages?: { slug: string; title: string }[] }) {
   const pathname = usePathname() || `/${locale}`;
-  const rest = pathname.replace(/^\/(en|ar|fr)/, "");
+  // Articles have their own slug in each language, so the switcher sends them to the Insights list instead of a 404.
+  const rest = pathname.replace(/^\/(en|ar|fr)/, "").replace(/^\/insights\/.+$/, "/insights");
   const home = `/${locale}`;
   const links: [string, string][] = [
     [`${home}#categories`, t.categories],
@@ -38,7 +39,7 @@ export function Header({ locale, t, phone, phoneHref, pages = [] }: { locale: Lo
             {locales.map((l) => (
               <Link
                 key={l}
-                href={`/${l}${rest}`}
+                href={l === locale ? pathname : `/${l}${rest}`}
                 hrefLang={localeMeta[l].hreflang}
                 lang={l}
                 aria-current={l === locale ? "true" : undefined}
