@@ -10,6 +10,8 @@ import { CONTENT_TAG, flatten } from "@/lib/content";
 import { getStaticDict } from "@/i18n/dictionaries";
 import { isLocale } from "@/i18n/config";
 import { isStatus } from "@/lib/leads";
+import { pingIndexNow } from "@/lib/indexnow";
+import { SITE } from "@/lib/site";
 
 const str = (v: FormDataEntryValue | null, max = 20000) => (typeof v === "string" ? v.slice(0, max) : "");
 
@@ -131,6 +133,7 @@ export async function savePost(fd: FormData) {
       const [row] = await sql<{ id: number }[]>`insert into posts (locale, slug, title, excerpt, body, cover_media, published, published_at)
         values (${locale}, ${slug}, ${title}, ${excerpt}, ${body}, ${cover}, ${published}, ${published ? new Date() : null}) returning id`;
       flush();
+      if (published) await pingIndexNow([`${SITE.url}/${locale}/insights/${encodeURIComponent(slug)}`, `${SITE.url}/${locale}/insights`]);
       redirect(`/admin/posts/${row.id}?saved=1`);
     }
   } catch (e) {
@@ -139,6 +142,7 @@ export async function savePost(fd: FormData) {
     redirect(`/admin/posts${id ? `/${id}` : "/new"}?error=slug`);
   }
   flush();
+  if (published) await pingIndexNow([`${SITE.url}/${locale}/insights/${encodeURIComponent(slug)}`, `${SITE.url}/${locale}/insights`]);
   redirect(`/admin/posts/${id}?saved=1`);
 }
 

@@ -1,7 +1,7 @@
 // Runs after `next build` on Vercel production builds: tells IndexNow search engines
 // (Bing — which ChatGPT search relies on — Yandex, Seznam, Naver…) that the site's pages changed,
 // so they recrawl sooner. Never fails the build.
-const KEY = "41293ec8bdb8d935bf70c6aaa48fa5c5"; // must match public/<KEY>.txt
+const KEY = "41293ec8bdb8d935bf70c6aaa48fa5c5"; // must match public/<KEY>.txt and src/lib/indexnow.ts
 const SITE = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.oryvchem.com").replace(/\/$/, "");
 
 async function main() {
