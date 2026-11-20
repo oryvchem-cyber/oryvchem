@@ -7,7 +7,7 @@ import { getStaticDict } from "@/i18n/dictionaries";
 import { isLocale, locales, localeMeta, type Locale } from "@/i18n/config";
 import { resetContent, saveContent } from "../actions";
 
-const LIST_PREFIXES = ["process.steps.", "capability.items.", "markets.regions.", "compliance.items."];
+const LIST_PREFIXES = ["process.steps.", "capability.items.", "markets.regions.", "compliance.items.", "payment.items."];
 const inList = (p: string) => LIST_PREFIXES.some((x) => p.startsWith(x));
 
 function group(path: string): string {

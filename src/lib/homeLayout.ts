@@ -11,6 +11,7 @@ export const HOME_SECTIONS = [
   { id: "markets", label: "Markets" },
   { id: "cta", label: "Call-back band" },
   { id: "compliance", label: "Compliance" },
+  { id: "payment", label: "Payment terms & quality control" },
   { id: "faq", label: "FAQ" },
   { id: "contact", label: "Contact + quote form" },
 ] as const;

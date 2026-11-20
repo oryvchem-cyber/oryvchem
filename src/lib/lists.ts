@@ -11,6 +11,7 @@ export const LIST_DEFS: ListDef[] = [
   { key: "capability.items", label: "Sourcing capability", help: "The cards in the “Sourcing capability” section.", fields: [{ k: "t", label: "Title" }, { k: "d", label: "Description", multiline: true }] },
   { key: "markets.regions", label: "Markets", help: "Regions we serve.", fields: [{ k: "name", label: "Region" }, { k: "countries", label: "Countries" }] },
   { key: "compliance.items", label: "Compliance items", help: "The checklist in the Compliance section.", fields: [{ k: "t", label: "Title" }, { k: "d", label: "Description", multiline: true }] },
+  { key: "payment.items", label: "Payment & quality", help: "The points in the “Payment & quality” section (deposit, QC, balance, shipping).", fields: [{ k: "t", label: "Title" }, { k: "d", label: "Description", multiline: true }] },
 ];
 
 export type ListItem = Record<string, string>;

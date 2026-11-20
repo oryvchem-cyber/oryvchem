@@ -42,7 +42,7 @@ export const en = {
     eyebrow: "SOURCING OFFICE — FOSHAN, GUANGDONG",
     title: "Chemical Sourcing from China for Global Industrial Buyers",
     lede:
-      "Oryvchem helps international buyers source industrial chemicals and raw materials from China. We identify suitable Chinese manufacturers and suppliers, coordinate quotations, samples and documentation requests, and arrange export shipping through logistics partners.",
+      "Oryvchem helps international buyers source industrial chemicals and raw materials from manufacturers all over China. We find and compare suitable suppliers, coordinate quotations, samples and documents, take care of quality control before shipment, and ship the goods to your port through our logistics partners.",
     ctaQuote: "Request a quote",
     ctaProducts: "View products",
     ctaCall: "Call / WhatsApp",
@@ -69,9 +69,11 @@ export const en = {
     label: "WHAT IS ORYVCHEM",
     title: "A chemical and raw-material sourcing partner based in Foshan, China",
     body:
-      "Oryvchem is a chemical sourcing agent in Nanhai District, Foshan, Guangdong. We are not a manufacturer. We help overseas buyers find suitable Chinese manufacturers and suppliers, request and compare quotations, check supplier information and product specifications, coordinate samples and technical documents such as the COA and SDS where the supplier provides them, and arrange export shipping through logistics partners. Typical customers are importers, distributors and manufacturers in the Middle East, North Africa and Europe.",
+      "Oryvchem is a chemical sourcing agent in Nanhai District, Foshan, Guangdong. We are not a manufacturer. We help overseas buyers find suitable manufacturers and suppliers anywhere in China, request and compare quotations, check supplier information and product specifications, coordinate samples and technical documents such as the COA and SDS where the supplier provides them, and arrange export shipping through logistics partners. Typical customers are importers, distributors and manufacturers in the Middle East, North Africa and Europe.",
     facts: [
       ["Based in", "Foshan, Guangdong, China"],
+      ["Sourcing area", "Manufacturers all over China"],
+      ["CEO", "Houda Chorfi"],
       ["Core categories", "Ceramics, water treatment, surfactants, plastics, paints, textiles"],
       ["Also sources", "Any product made in China, on request"],
       ["Documents", "COA, SDS and TDS on request, where the supplier provides them"],
@@ -215,6 +217,17 @@ export const en = {
       { t: "Safety Data Sheets", d: "Requested from the supplier; tell us your destination market's format requirements." },
       { t: "Batch traceability", d: "Batch numbers recorded on supplier documents where provided." },
       { t: "DG classification", d: "IMDG/IATA classification confirmed with the supplier and forwarder before freight is booked." },
+    ],
+  },
+  payment: {
+    label: "PAYMENT & QUALITY",
+    title: "Simple payment terms, checked before shipping",
+    intro: "You pay in two parts, and we take care of quality control before your goods leave China.",
+    items: [
+      { t: "50% deposit", d: "Paid when you confirm the order, so the supplier can start preparing your goods." },
+      { t: "Quality control", d: "We take care of QC: we check the goods against your agreed specification before shipment and send you the results." },
+      { t: "50% balance", d: "Paid after the goods pass our quality check, before they are released for shipping." },
+      { t: "Shipping to your port", d: "We arrange export shipping from China to your destination through our logistics partners." },
     ],
   },
   faq: {

@@ -54,6 +54,7 @@ export async function buildLlmsFull(): Promise<string> {
     out.push(`## ${d.process.title}`, ...d.process.steps.map((s, i) => `${i + 1}. ${s.t}: ${s.d}`), "");
     out.push(`## ${d.markets.title}`, d.markets.intro, ...d.markets.regions.map((r) => `- ${r.name}: ${r.countries}`), "");
     out.push(`## ${d.compliance.title}`, d.compliance.note, ...d.compliance.items.map((i) => `- ${i.t}: ${i.d}`), "");
+    out.push(`## ${d.payment.title}`, d.payment.intro, ...d.payment.items.map((i) => `- ${i.t}: ${i.d}`), "");
     out.push(`## ${d.faq.title}`);
     for (const f of d.faq.items) out.push(`Q: ${f.q}`, `A: ${f.a}`);
     out.push("");

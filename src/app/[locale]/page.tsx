@@ -170,6 +170,25 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </div>
     </section>
     ),
+    payment: (
+    <section id="payment">
+      <div className="wrap compliance-grid">
+        <div>
+          <div className="section-label">{d.payment.label}</div>
+          <h2 className="section-title">{d.payment.title}</h2>
+          <p className="muted">{d.payment.intro}</p>
+        </div>
+        <ul className="compliance-list">
+          {d.payment.items.map((it) => (
+            <li key={it.t}>
+              <span className="icon" />
+              <div><strong>{it.t}</strong><span>{it.d}</span></div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+    ),
     faq: (
     <section id="faq" className="alt">
       <div className="wrap faq-wrap">

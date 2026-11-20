@@ -44,7 +44,7 @@ export const fr: Dict = {
     eyebrow: "BUREAU DE SOURCING — FOSHAN, GUANGDONG",
     title: "Sourcing de produits chimiques en Chine pour les acheteurs industriels du monde entier",
     lede:
-      "Oryvchem aide les acheteurs internationaux à sourcer des produits chimiques industriels et des matières premières en Chine. Nous identifions des fabricants et fournisseurs chinois adaptés, coordonnons devis, échantillons et demandes de documents, et organisons l'expédition export avec des partenaires logistiques.",
+      "Oryvchem aide les acheteurs internationaux à sourcer des produits chimiques industriels et des matières premières auprès de fabricants dans toute la Chine. Nous trouvons et comparons les fournisseurs adaptés, coordonnons devis, échantillons et documents, prenons en charge le contrôle qualité avant expédition, et expédions la marchandise jusqu'à votre port avec nos partenaires logistiques.",
     ctaQuote: "Demander un devis",
     ctaProducts: "Voir les produits",
     ctaCall: "Appeler / WhatsApp",
@@ -71,9 +71,11 @@ export const fr: Dict = {
     label: "QU'EST-CE QU'ORYVCHEM",
     title: "Un partenaire de sourcing de produits chimiques et matières premières basé à Foshan, Chine",
     body:
-      "Oryvchem est un agent de sourcing de produits chimiques situé dans le district de Nanhai, à Foshan (Guangdong). Nous ne sommes pas fabricant. Nous aidons les acheteurs étrangers à trouver des fabricants et fournisseurs chinois adaptés, à demander et comparer des devis, à vérifier les informations des fournisseurs et les spécifications des produits, à coordonner les échantillons et les documents techniques (COA, FDS) lorsque le fournisseur les fournit, et nous organisons l'expédition export avec des partenaires logistiques. Nos clients types sont des importateurs, distributeurs et industriels du Maghreb, d'Afrique francophone, du Moyen-Orient et d'Europe.",
+      "Oryvchem est un agent de sourcing de produits chimiques situé dans le district de Nanhai, à Foshan (Guangdong). Nous ne sommes pas fabricant. Nous aidons les acheteurs étrangers à trouver des fabricants et fournisseurs adaptés partout en Chine, à demander et comparer des devis, à vérifier les informations des fournisseurs et les spécifications des produits, à coordonner les échantillons et les documents techniques (COA, FDS) lorsque le fournisseur les fournit, et nous organisons l'expédition export avec des partenaires logistiques. Nos clients types sont des importateurs, distributeurs et industriels du Maghreb, d'Afrique francophone, du Moyen-Orient et d'Europe.",
     facts: [
       ["Siège", "Foshan, Guangdong, Chine"],
+      ["Zone de sourcing", "Fabricants dans toute la Chine"],
+      ["Directrice générale", "Houda Chorfi"],
       ["Catégories clés", "Céramique, traitement de l'eau, tensioactifs, plastiques, peintures, textile"],
       ["Aussi", "Tout produit fabriqué en Chine, sur demande"],
       ["Documents", "COA, FDS et fiche technique sur demande, si le fournisseur les fournit"],
@@ -217,6 +219,17 @@ export const fr: Dict = {
       { t: "Fiches de données de sécurité", d: "Demandées au fournisseur ; indiquez-nous les exigences de format de votre marché de destination." },
       { t: "Traçabilité des lots", d: "Numéros de lot relevés sur les documents du fournisseur lorsqu'ils sont fournis." },
       { t: "Classification DG", d: "Classement IMDG/IATA confirmé avec le fournisseur et le transitaire avant la réservation du fret." },
+    ],
+  },
+  payment: {
+    label: "PAIEMENT & QUALITÉ",
+    title: "Des conditions de paiement simples, un contrôle avant expédition",
+    intro: "Vous payez en deux fois, et nous prenons en charge le contrôle qualité avant que vos marchandises quittent la Chine.",
+    items: [
+      { t: "Acompte de 50 %", d: "Versé à la confirmation de la commande, pour que le fournisseur commence à préparer vos marchandises." },
+      { t: "Contrôle qualité", d: "Nous prenons en charge le contrôle qualité : nous vérifions les marchandises selon la spécification convenue avant expédition et vous envoyons les résultats." },
+      { t: "Solde de 50 %", d: "Versé une fois que les marchandises ont passé notre contrôle qualité, avant leur remise au transporteur." },
+      { t: "Expédition jusqu'à votre port", d: "Nous organisons l'expédition export depuis la Chine jusqu'à votre destination avec nos partenaires logistiques." },
     ],
   },
   faq: {
