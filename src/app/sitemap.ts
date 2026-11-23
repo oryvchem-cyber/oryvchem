@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales, localeMeta, defaultLocale, isLocale } from "@/i18n/config";
 import { getCategorySlugs } from "@/lib/categories";
+import { materials } from "@/lib/materials";
 import { SITE } from "@/lib/site";
 import { url } from "@/lib/seo";
 import { allPublishedSlugs } from "@/lib/posts";
@@ -10,7 +11,13 @@ import { allPublishedPages } from "@/lib/pages";
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const paths = ["", "/insights", ...(await getCategorySlugs()).map((s) => `/products/${s}`)];
+  const cats = await getCategorySlugs();
+  const paths = [
+    "",
+    "/insights",
+    ...cats.map((s) => `/products/${s}`),
+    ...materials.filter((m) => cats.includes(m.category)).map((m) => `/products/${m.category}/${m.slug}`),
+  ];
   const lastModified = new Date(SITE.updated);
   const pages: MetadataRoute.Sitemap = paths.flatMap((path) =>
     locales.map((locale) => ({

@@ -1,0 +1,660 @@
+import type { Locale } from "@/i18n/config";
+import type { CategorySlug } from "./site";
+
+/**
+ * Individual product pages (one per material), shown under their category:
+ * /[locale]/products/[category]/[material].
+ * Values are typical figures from supplier data sheets; the exact spec is confirmed per supplier (COA).
+ */
+export type MatText = {
+  name: string;
+  intro: string;
+  grade: string;
+  form: string;
+  packing: string;
+  uses: string[];
+};
+
+export type Material = {
+  slug: string;
+  category: CategorySlug;
+  /** Short trade name shown as the tag and in the title. */
+  code: string;
+  cas?: string;
+  hs?: string;
+  formula?: string;
+  standard?: string;
+  /** Extra search terms (synonyms, grades) for metadata. */
+  aka: string[];
+  text: Record<Locale, MatText>;
+};
+
+const S: CategorySlug = "surfactants-detergents";
+
+export const materials: Material[] = [
+  {
+    slug: "sodium-las",
+    category: S,
+    code: "LAS-Na",
+    cas: "25155-30-0",
+    hs: "3402390000",
+    formula: "R-C6H4SO3Na",
+    standard: "GB/T 13173",
+    aka: ["LAS", "sodium dodecylbenzene sulfonate", "LAS powder"],
+    text: {
+      en: {
+        name: "Sodium linear alkylbenzene sulphonate (LAS-Na)",
+        intro:
+          "LAS-Na is the anionic surfactant at the core of most washing powders. It is a stable, free-flowing powder that mixes directly into powder formulas and is safer to handle and ship than liquid LABSA.",
+        grade: "30% – 85% active matter",
+        form: "White to light-yellow free-flowing powder, 20–60 mesh",
+        packing: "10 kg or 12.5 kg bags",
+        uses: ["Washing powder", "Detergent bars", "Industrial cleaners"],
+      },
+      fr: {
+        name: "Sulfonate d'alkylbenzène linéaire de sodium (LAS-Na)",
+        intro:
+          "Le LAS-Na est le tensioactif anionique de base de la plupart des lessives en poudre. Poudre stable et fluide, il s'incorpore directement dans les formules poudre et se manipule et se transporte plus facilement que le LABSA liquide.",
+        grade: "30 % – 85 % de matière active",
+        form: "Poudre fluide blanche à jaune clair, 20–60 mesh",
+        packing: "Sacs de 10 kg ou 12,5 kg",
+        uses: ["Lessive en poudre", "Pains de détergent", "Nettoyants industriels"],
+      },
+      ar: {
+        name: "سلفونات ألكيل بنزين الخطي الصوديومية (LAS-Na)",
+        intro:
+          "LAS-Na هو المادة الفعالة السطحية الأنيونية الأساسية في معظم مساحيق الغسيل. مسحوق ثابت سهل الانسياب يُخلط مباشرة في تركيبات المساحيق، وهو أسهل وأأمن في النقل والتداول من LABSA السائل.",
+        grade: "مادة فعالة من 30% إلى 85%",
+        form: "مسحوق أبيض إلى أصفر فاتح سهل الانسياب، 20–60 مش",
+        packing: "أكياس 10 كغ أو 12.5 كغ",
+        uses: ["مسحوق الغسيل", "قوالب المنظفات", "المنظفات الصناعية"],
+      },
+    },
+  },
+  {
+    slug: "aos",
+    category: S,
+    code: "AOS",
+    cas: "68439-57-6",
+    hs: "3402390000",
+    standard: "GB/T 5173",
+    aka: ["alpha olefin sulfonate", "AOS 92", "AOS 35"],
+    text: {
+      en: {
+        name: "Alpha olefin sulfonate (AOS)",
+        intro:
+          "AOS gives rich foam, strong cleaning and good tolerance of hard water, with low irritation and ready biodegradability. It works well in phosphate-free powders and in liquid detergents and shampoos.",
+        grade: "92% powder · 35% liquid",
+        form: "White to light-yellow powder, or light-yellow clear liquid",
+        packing: "20–25 kg bags (powder); 200 kg drums or IBC (liquid)",
+        uses: ["Liquid detergent", "Shampoo and body wash", "Phosphate-free washing powder", "Textile printing and dyeing"],
+      },
+      fr: {
+        name: "Sulfonate d'alpha-oléfine (AOS)",
+        intro:
+          "L'AOS offre une mousse riche, un fort pouvoir lavant et une bonne tolérance à l'eau dure, avec une faible irritation et une bonne biodégradabilité. Il convient aux lessives sans phosphate, aux détergents liquides et aux shampooings.",
+        grade: "Poudre 92 % · liquide 35 %",
+        form: "Poudre blanche à jaune clair, ou liquide jaune clair transparent",
+        packing: "Sacs de 20–25 kg (poudre) ; fûts de 200 kg ou IBC (liquide)",
+        uses: ["Détergent liquide", "Shampooing et gel douche", "Lessive en poudre sans phosphate", "Impression et teinture textile"],
+      },
+      ar: {
+        name: "سلفونات ألفا أوليفين (AOS)",
+        intro:
+          "يمنح AOS رغوة غنية وقوة تنظيف عالية وتحمّلاً جيداً للماء العسر، مع تهيّج منخفض وقابلية جيدة للتحلل الحيوي. مناسب لمساحيق الغسيل الخالية من الفوسفات وللمنظفات السائلة والشامبو.",
+        grade: "مسحوق 92% · سائل 35%",
+        form: "مسحوق أبيض إلى أصفر فاتح، أو سائل شفاف أصفر فاتح",
+        packing: "أكياس 20–25 كغ (مسحوق)؛ براميل 200 كغ أو IBC (سائل)",
+        uses: ["المنظفات السائلة", "الشامبو وغسول الجسم", "مسحوق غسيل خالٍ من الفوسفات", "طباعة وصباغة النسيج"],
+      },
+    },
+  },
+  {
+    slug: "sls-k12",
+    category: S,
+    code: "SLS",
+    cas: "151-21-3",
+    hs: "3402390000",
+    formula: "ROSO3Na (R: C12–14)",
+    standard: "GB/T 15963",
+    aka: ["sodium lauryl sulfate", "K12", "SLS needles", "SDS"],
+    text: {
+      en: {
+        name: "Sodium lauryl sulphate (SLS / K12)",
+        intro:
+          "SLS is a fast-foaming anionic surfactant with excellent emulsifying, wetting and cleaning power. It is supplied as powder or needles, with toothpaste and cosmetic grades available on request.",
+        grade: "92% – 95% active matter",
+        form: "White or yellowish powder, or needles",
+        packing: "20 kg bags (powder); 25 kg bags (needles)",
+        uses: ["Toothpaste", "Shampoo and cosmetics", "Detergents", "Industrial emulsifier"],
+      },
+      fr: {
+        name: "Laurylsulfate de sodium (SLS / K12)",
+        intro:
+          "Le SLS est un tensioactif anionique très moussant, au fort pouvoir émulsifiant, mouillant et nettoyant. Il est proposé en poudre ou en aiguilles, avec des qualités dentifrice et cosmétique sur demande.",
+        grade: "92 % – 95 % de matière active",
+        form: "Poudre blanche ou jaunâtre, ou aiguilles",
+        packing: "Sacs de 20 kg (poudre) ; sacs de 25 kg (aiguilles)",
+        uses: ["Dentifrice", "Shampooing et cosmétiques", "Détergents", "Émulsifiant industriel"],
+      },
+      ar: {
+        name: "كبريتات لوريل الصوديوم (SLS / K12)",
+        intro:
+          "SLS مادة سطحية أنيونية سريعة الرغوة ذات قدرة عالية على الاستحلاب والترطيب والتنظيف. تتوفر على شكل مسحوق أو إبر، مع درجات لمعجون الأسنان ومستحضرات التجميل عند الطلب.",
+        grade: "مادة فعالة من 92% إلى 95%",
+        form: "مسحوق أبيض أو مصفرّ، أو إبر",
+        packing: "أكياس 20 كغ (مسحوق)؛ أكياس 25 كغ (إبر)",
+        uses: ["معجون الأسنان", "الشامبو ومستحضرات التجميل", "المنظفات", "مستحلب صناعي"],
+      },
+    },
+  },
+  {
+    slug: "sles-70",
+    category: S,
+    code: "SLES 70%",
+    cas: "68585-34-2",
+    hs: "3402390000",
+    formula: "RO(CH2CH2O)nSO3Na (R: C12–14)",
+    aka: ["sodium lauryl ether sulfate", "AES", "SLES 70", "sodium laureth sulfate"],
+    text: {
+      en: {
+        name: "Sodium lauryl ether sulphate (SLES / AES)",
+        intro:
+          "SLES is a gentle, high-foaming surfactant with strong hard-water resistance and good biodegradability. It can partly replace LAS, which lets formulators reduce phosphate and active dosage.",
+        grade: "70% ± 2 active matter",
+        form: "White to light-yellow viscous paste",
+        packing: "170 kg or 220 kg plastic drums; 1,100 kg IBC",
+        uses: ["Liquid laundry detergent", "Dishwashing liquid", "Shampoo and bubble bath", "Hand wash"],
+      },
+      fr: {
+        name: "Laureth sulfate de sodium (SLES / AES)",
+        intro:
+          "Le SLES est un tensioactif doux et très moussant, résistant à l'eau dure et bien biodégradable. Il peut remplacer en partie le LAS, ce qui permet de réduire les phosphates et le dosage en matière active.",
+        grade: "70 % ± 2 de matière active",
+        form: "Pâte visqueuse blanche à jaune clair",
+        packing: "Fûts plastique de 170 kg ou 220 kg ; IBC de 1 100 kg",
+        uses: ["Lessive liquide", "Liquide vaisselle", "Shampooing et bain moussant", "Savon pour les mains"],
+      },
+      ar: {
+        name: "كبريتات لوريل إيثر الصوديوم (SLES / AES)",
+        intro:
+          "SLES مادة سطحية لطيفة وعالية الرغوة، مقاومة للماء العسر وقابلة للتحلل الحيوي. يمكن أن تحل جزئياً محل LAS، مما يسمح بتقليل الفوسفات وجرعة المادة الفعالة.",
+        grade: "مادة فعالة 70% ± 2",
+        form: "عجينة لزجة بيضاء إلى صفراء فاتحة",
+        packing: "براميل بلاستيكية 170 كغ أو 220 كغ؛ IBC سعة 1100 كغ",
+        uses: ["منظف الغسيل السائل", "سائل غسيل الأطباق", "الشامبو وحمّام الفقاعات", "غسول اليدين"],
+      },
+    },
+  },
+  {
+    slug: "aeo-9",
+    category: S,
+    code: "AEO-9",
+    cas: "3055-97-8",
+    hs: "3402420000",
+    formula: "RO(CH2CH2O)nH",
+    aka: ["fatty alcohol ethoxylate", "AEO9", "alcohol ethoxylate", "nonionic surfactant"],
+    text: {
+      en: {
+        name: "Fatty alcohol ethoxylate (AEO-9)",
+        intro:
+          "AEO-9 is a versatile nonionic surfactant and emulsifier with strong degreasing power and stable performance in hard water. It blends well with anionic surfactants in liquid detergents.",
+        grade: "99% min active matter",
+        form: "Liquid or white paste",
+        packing: "200 kg drums",
+        uses: ["Liquid detergent", "Wool and textile scouring", "Metal and industrial degreasing", "Emulsifier"],
+      },
+      fr: {
+        name: "Alcool gras éthoxylé (AEO-9)",
+        intro:
+          "L'AEO-9 est un tensioactif non ionique et émulsifiant polyvalent, au fort pouvoir dégraissant et stable en eau dure. Il s'associe bien aux tensioactifs anioniques dans les détergents liquides.",
+        grade: "99 % min de matière active",
+        form: "Liquide ou pâte blanche",
+        packing: "Fûts de 200 kg",
+        uses: ["Détergent liquide", "Désuintage de la laine et du textile", "Dégraissage industriel et des métaux", "Émulsifiant"],
+      },
+      ar: {
+        name: "إيثوكسيلات الكحول الدهني (AEO-9)",
+        intro:
+          "AEO-9 مادة سطحية غير أيونية ومستحلب متعدد الاستخدامات، ذو قدرة عالية على إزالة الدهون وأداء ثابت في الماء العسر. يمتزج جيداً مع المواد الأنيونية في المنظفات السائلة.",
+        grade: "مادة فعالة 99% كحد أدنى",
+        form: "سائل أو عجينة بيضاء",
+        packing: "براميل 200 كغ",
+        uses: ["المنظفات السائلة", "غسل الصوف والنسيج", "إزالة الدهون الصناعية والمعدنية", "مستحلب"],
+      },
+    },
+  },
+  {
+    slug: "apg",
+    category: S,
+    code: "APG",
+    cas: "68515-73-1",
+    hs: "3402420000",
+    formula: "C16H32O6 (R: C8–10)",
+    aka: ["alkyl polyglucoside", "APG 0810", "APG 0814", "APG 1214", "decyl glucoside"],
+    text: {
+      en: {
+        name: "Alkyl polyglucoside (APG)",
+        intro:
+          "APG is a mild nonionic surfactant made from renewable raw materials. It is low-irritation, readily biodegradable and foams well, which makes it a common choice for eco and personal-care formulas.",
+        grade: "APG 0810, 0814 and 1214 · 50% – 72% solids",
+        form: "Pale-yellow to brown liquid",
+        packing: "220 kg drums or IBC",
+        uses: ["Personal care", "Household cleaners", "Eco-label formulations", "Dishwashing liquid"],
+      },
+      fr: {
+        name: "Alkylpolyglucoside (APG)",
+        intro:
+          "L'APG est un tensioactif non ionique doux, issu de matières premières renouvelables. Peu irritant, facilement biodégradable et bon moussant, il est très utilisé dans les formules écologiques et cosmétiques.",
+        grade: "APG 0810, 0814 et 1214 · 50 % – 72 % d'extrait sec",
+        form: "Liquide jaune pâle à brun",
+        packing: "Fûts de 220 kg ou IBC",
+        uses: ["Soins personnels", "Nettoyants ménagers", "Formules éco-labellisées", "Liquide vaisselle"],
+      },
+      ar: {
+        name: "ألكيل بولي غلوكوزيد (APG)",
+        intro:
+          "APG مادة سطحية غير أيونية لطيفة مصنوعة من مواد خام متجددة. منخفضة التهيّج وسهلة التحلل الحيوي وجيدة الرغوة، لذا تُستخدم كثيراً في التركيبات الصديقة للبيئة ومنتجات العناية الشخصية.",
+        grade: "APG 0810 و0814 و1214 · مواد صلبة 50% – 72%",
+        form: "سائل أصفر باهت إلى بني",
+        packing: "براميل 220 كغ أو IBC",
+        uses: ["العناية الشخصية", "المنظفات المنزلية", "التركيبات الصديقة للبيئة", "سائل غسيل الأطباق"],
+      },
+    },
+  },
+  {
+    slug: "cdea",
+    category: S,
+    code: "CDEA",
+    cas: "68603-42-9",
+    hs: "3402420000",
+    formula: "RCON(C2H4OH)2",
+    standard: "GB 34462",
+    aka: ["coconut diethanolamide", "cocamide DEA", "6501"],
+    text: {
+      en: {
+        name: "Coconut diethanolamide 1:1 (CDEA)",
+        intro:
+          "CDEA is a nonionic thickener and foam stabilizer. Blended with anionic surfactants such as LAS it boosts cleaning and foam, reduces skin irritation and gives a softer feel.",
+        grade: "≥ 85% active matter",
+        form: "Light-yellow liquid",
+        packing: "200 kg plastic drums",
+        uses: ["Shampoo", "Dishwashing and liquid detergent", "Liquid soap", "Metal cleaners"],
+      },
+      fr: {
+        name: "Diéthanolamide de coco 1:1 (CDEA)",
+        intro:
+          "Le CDEA est un épaississant et stabilisant de mousse non ionique. Associé à des anioniques comme le LAS, il renforce le lavage et la mousse, réduit l'irritation et donne un toucher plus doux.",
+        grade: "≥ 85 % de matière active",
+        form: "Liquide jaune clair",
+        packing: "Fûts plastique de 200 kg",
+        uses: ["Shampooing", "Liquide vaisselle et détergent liquide", "Savon liquide", "Nettoyants pour métaux"],
+      },
+      ar: {
+        name: "ثنائي إيثانول أميد جوز الهند 1:1 (CDEA)",
+        intro:
+          "CDEA مادة غير أيونية مكثِّفة ومثبِّتة للرغوة. عند مزجها مع مواد أنيونية مثل LAS تعزز التنظيف والرغوة، وتقلل تهيّج الجلد وتمنح ملمساً أنعم.",
+        grade: "مادة فعالة ≥ 85%",
+        form: "سائل أصفر فاتح",
+        packing: "براميل بلاستيكية 200 كغ",
+        uses: ["الشامبو", "سائل الأطباق والمنظفات السائلة", "الصابون السائل", "منظفات المعادن"],
+      },
+    },
+  },
+  {
+    slug: "capb",
+    category: S,
+    code: "CAPB",
+    cas: "61789-40-0",
+    hs: "3402490000",
+    formula: "RCONH(CH2)3N+(CH3)2CH2COO−",
+    aka: ["cocamidopropyl betaine", "CAB-35", "CAB-45", "betaine"],
+    text: {
+      en: {
+        name: "Cocamidopropyl betaine (CAPB / CAB)",
+        intro:
+          "CAPB is a mild amphoteric surfactant that lowers the irritation of anionic systems, builds viscosity and adds soft, stable foam. It is a standard co-surfactant in shampoos and body washes.",
+        grade: "CAB-35 (30% active) · CAB-45 (37% active)",
+        form: "Colorless to yellowish clear liquid",
+        packing: "200 kg plastic drums",
+        uses: ["Shampoo and body wash", "Baby care", "Hand soap", "Dishwashing liquid"],
+      },
+      fr: {
+        name: "Cocamidopropyl bétaïne (CAPB / CAB)",
+        intro:
+          "La CAPB est un tensioactif amphotère doux qui réduit l'irritation des systèmes anioniques, augmente la viscosité et apporte une mousse douce et stable. C'est un co-tensioactif standard des shampooings et gels douche.",
+        grade: "CAB-35 (30 % actif) · CAB-45 (37 % actif)",
+        form: "Liquide limpide incolore à jaunâtre",
+        packing: "Fûts plastique de 200 kg",
+        uses: ["Shampooing et gel douche", "Soins bébé", "Savon pour les mains", "Liquide vaisselle"],
+      },
+      ar: {
+        name: "كوكاميدوبروبيل بيتين (CAPB / CAB)",
+        intro:
+          "CAPB مادة سطحية مذبذبة لطيفة تقلل تهيّج الأنظمة الأنيونية وتزيد اللزوجة وتضيف رغوة ناعمة وثابتة. وهي مادة مساعدة أساسية في الشامبو وغسول الجسم.",
+        grade: "CAB-35 (‏30% فعالة) · CAB-45 (‏37% فعالة)",
+        form: "سائل شفاف عديم اللون إلى مصفرّ",
+        packing: "براميل بلاستيكية 200 كغ",
+        uses: ["الشامبو وغسول الجسم", "منتجات الأطفال", "صابون اليدين", "سائل غسيل الأطباق"],
+      },
+    },
+  },
+  {
+    slug: "stpp",
+    category: S,
+    code: "STPP",
+    cas: "7758-29-4",
+    hs: "2835310000",
+    formula: "Na5P3O10",
+    standard: "GB/T 9983",
+    aka: ["sodium tripolyphosphate", "STPP 94%", "detergent builder"],
+    text: {
+      en: {
+        name: "Sodium tripolyphosphate (STPP)",
+        intro:
+          "STPP is the classic detergent builder. It softens water by binding calcium and magnesium, raises alkalinity, and keeps lifted dirt suspended so it does not settle back on fabric.",
+        grade: "Industrial grade, whiteness ≥ 90",
+        form: "Free-flowing white powder",
+        packing: "25 kg, 1,000 kg or 1,250 kg bags",
+        uses: ["Washing powder", "Industrial and institutional cleaning", "Ceramics", "Water treatment"],
+      },
+      fr: {
+        name: "Tripolyphosphate de sodium (STPP)",
+        intro:
+          "Le STPP est l'adjuvant (builder) classique des détergents. Il adoucit l'eau en fixant le calcium et le magnésium, augmente l'alcalinité et maintient les salissures en suspension pour éviter qu'elles se redéposent.",
+        grade: "Qualité industrielle, blancheur ≥ 90",
+        form: "Poudre blanche fluide",
+        packing: "Sacs de 25 kg, 1 000 kg ou 1 250 kg",
+        uses: ["Lessive en poudre", "Nettoyage industriel et collectif", "Céramique", "Traitement de l'eau"],
+      },
+      ar: {
+        name: "ثلاثي بولي فوسفات الصوديوم (STPP)",
+        intro:
+          "STPP هو المادة البانية التقليدية في المنظفات. يعمل على تيسير الماء بربط الكالسيوم والمغنيسيوم، ويرفع القلوية، ويُبقي الأوساخ معلّقة حتى لا تعود إلى القماش.",
+        grade: "درجة صناعية، بياض ≥ 90",
+        form: "مسحوق أبيض سهل الانسياب",
+        packing: "أكياس 25 كغ أو 1000 كغ أو 1250 كغ",
+        uses: ["مسحوق الغسيل", "التنظيف الصناعي والمؤسسي", "السيراميك", "معالجة المياه"],
+      },
+    },
+  },
+  {
+    slug: "zeolite-4a",
+    category: S,
+    code: "Zeolite 4A",
+    cas: "1318-02-1",
+    hs: "3824999000",
+    standard: "QB/T 1768",
+    aka: ["detergent zeolite", "zeolite 4A", "phosphate-free builder"],
+    text: {
+      en: {
+        name: "Detergent-grade zeolite 4A",
+        intro:
+          "Zeolite 4A is the main builder for phosphate-free and low-phosphate detergents. Combined with LAS, AES or AOS, it delivers cleaning close to phosphate systems without the phosphorus.",
+        grade: "Ca exchange ≥ 310 mg CaCO₃/g · whiteness ≥ 96",
+        form: "White powder",
+        packing: "25 kg or 40 kg bags; jumbo bags",
+        uses: ["Phosphate-free washing powder", "Low-phosphate detergent", "Laundry tablets"],
+      },
+      fr: {
+        name: "Zéolithe 4A qualité détergent",
+        intro:
+          "La zéolithe 4A est le principal adjuvant des lessives sans ou à faible teneur en phosphate. Associée au LAS, à l'AES ou à l'AOS, elle offre un lavage proche des systèmes phosphatés, sans phosphore.",
+        grade: "Échange Ca ≥ 310 mg CaCO₃/g · blancheur ≥ 96",
+        form: "Poudre blanche",
+        packing: "Sacs de 25 kg ou 40 kg ; big bags",
+        uses: ["Lessive en poudre sans phosphate", "Détergent à faible teneur en phosphate", "Tablettes de lessive"],
+      },
+      ar: {
+        name: "زيوليت 4A بدرجة المنظفات",
+        intro:
+          "زيوليت 4A هو المادة البانية الرئيسية للمنظفات الخالية من الفوسفات أو منخفضة الفوسفات. عند مزجه مع LAS أو AES أو AOS يعطي تنظيفاً قريباً من أنظمة الفوسفات دون الفوسفور.",
+        grade: "تبادل الكالسيوم ≥ 310 ملغ CaCO₃/غ · بياض ≥ 96",
+        form: "مسحوق أبيض",
+        packing: "أكياس 25 كغ أو 40 كغ؛ أكياس جامبو",
+        uses: ["مسحوق غسيل خالٍ من الفوسفات", "منظفات منخفضة الفوسفات", "أقراص الغسيل"],
+      },
+    },
+  },
+  {
+    slug: "apsm",
+    category: S,
+    code: "APSM",
+    cas: "1344-09-8",
+    hs: "3824999999",
+    formula: "mNa2O·nSiO2·xH2O",
+    aka: ["active poly sodium metasilicate", "CSDS", "complex disodium silicate", "STPP replacement"],
+    text: {
+      en: {
+        name: "Active poly sodium metasilicate (APSM / CSDS)",
+        intro:
+          "APSM is designed to replace STPP in washing powder. It softens water strongly, saves cost and is a phosphate-free option for markets that restrict phosphates.",
+        grade: "Ca exchange ≥ 310 mg/g · Mg exchange ≥ 320 mg/g",
+        form: "Free-flowing white powder",
+        packing: "25 kg bags",
+        uses: ["Washing powder", "STPP replacement", "Hard-surface cleaners"],
+      },
+      fr: {
+        name: "Métasilicate de sodium polyactif (APSM / CSDS)",
+        intro:
+          "L'APSM est conçu pour remplacer le STPP dans les lessives en poudre. Il adoucit fortement l'eau, réduit les coûts et constitue une option sans phosphate pour les marchés qui les limitent.",
+        grade: "Échange Ca ≥ 310 mg/g · échange Mg ≥ 320 mg/g",
+        form: "Poudre blanche fluide",
+        packing: "Sacs de 25 kg",
+        uses: ["Lessive en poudre", "Remplacement du STPP", "Nettoyants pour surfaces dures"],
+      },
+      ar: {
+        name: "ميتاسيليكات الصوديوم النشطة (APSM / CSDS)",
+        intro:
+          "صُمّم APSM ليحل محل STPP في مسحوق الغسيل. يُيسّر الماء بقوة ويوفّر التكلفة، وهو خيار خالٍ من الفوسفات للأسواق التي تقيّد استخدامه.",
+        grade: "تبادل الكالسيوم ≥ 310 ملغ/غ · تبادل المغنيسيوم ≥ 320 ملغ/غ",
+        form: "مسحوق أبيض سهل الانسياب",
+        packing: "أكياس 25 كغ",
+        uses: ["مسحوق الغسيل", "بديل STPP", "منظفات الأسطح الصلبة"],
+      },
+    },
+  },
+  {
+    slug: "soda-ash",
+    category: S,
+    code: "Soda ash",
+    cas: "497-19-8",
+    hs: "2836200000",
+    formula: "Na2CO3",
+    aka: ["sodium carbonate", "soda ash light", "soda ash dense", "washing soda"],
+    text: {
+      en: {
+        name: "Soda ash, light and dense (sodium carbonate)",
+        intro:
+          "Soda ash is an essential alkali for detergents and soap, and a key input for glass, paper and water treatment. Light grade suits detergent powders; dense grade suits glass making.",
+        grade: "Total alkali ≥ 99.2%",
+        form: "White powder (light) or granules (dense)",
+        packing: "25, 40 or 50 kg bags; 650–1,000 kg jumbo bags",
+        uses: ["Detergent and soap", "Glass manufacturing", "Water treatment and pH control", "Pulp and paper"],
+      },
+      fr: {
+        name: "Carbonate de sodium, léger et dense",
+        intro:
+          "Le carbonate de sodium est un alcali essentiel pour les détergents et le savon, ainsi que pour le verre, le papier et le traitement de l'eau. Le léger convient aux lessives en poudre ; le dense à la verrerie.",
+        grade: "Alcali total ≥ 99,2 %",
+        form: "Poudre blanche (léger) ou granulés (dense)",
+        packing: "Sacs de 25, 40 ou 50 kg ; big bags de 650 à 1 000 kg",
+        uses: ["Détergents et savon", "Fabrication du verre", "Traitement de l'eau et contrôle du pH", "Pâte et papier"],
+      },
+      ar: {
+        name: "رماد الصودا الخفيف والكثيف (كربونات الصوديوم)",
+        intro:
+          "رماد الصودا قلوي أساسي في المنظفات والصابون، ومادة رئيسية في صناعة الزجاج والورق ومعالجة المياه. الدرجة الخفيفة مناسبة لمساحيق المنظفات، والكثيفة لصناعة الزجاج.",
+        grade: "القلوية الكلية ≥ 99.2%",
+        form: "مسحوق أبيض (خفيف) أو حبيبات (كثيف)",
+        packing: "أكياس 25 أو 40 أو 50 كغ؛ أكياس جامبو 650–1000 كغ",
+        uses: ["المنظفات والصابون", "صناعة الزجاج", "معالجة المياه وضبط الحموضة", "اللب والورق"],
+      },
+    },
+  },
+  {
+    slug: "cmc",
+    category: S,
+    code: "CMC",
+    cas: "9004-32-4",
+    hs: "3912310000",
+    standard: "GB/T 12028",
+    aka: ["carboxymethyl cellulose", "sodium CMC", "detergent CMC"],
+    text: {
+      en: {
+        name: "Carboxymethyl cellulose (CMC), detergent grade",
+        intro:
+          "CMC is an anti-redeposition agent: it stops lifted dirt from settling back on fabric during the wash and leaves textiles softer. Other grades serve food, oil drilling, paint and paper.",
+        grade: "NaCMC ≥ 65% · soluble in cold water",
+        form: "White or cream-colored powder",
+        packing: "25 kg or 1,000 kg bags",
+        uses: ["Washing powder and detergents", "Oil drilling", "Paint and paper", "Food (food grade)"],
+      },
+      fr: {
+        name: "Carboxyméthylcellulose (CMC), qualité détergent",
+        intro:
+          "La CMC est un agent anti-redéposition : elle empêche les salissures de se redéposer sur le linge pendant le lavage et rend les textiles plus doux. D'autres qualités servent l'alimentaire, le forage, la peinture et le papier.",
+        grade: "NaCMC ≥ 65 % · soluble dans l'eau froide",
+        form: "Poudre blanche ou crème",
+        packing: "Sacs de 25 kg ou 1 000 kg",
+        uses: ["Lessives et détergents", "Forage pétrolier", "Peinture et papier", "Alimentaire (qualité alimentaire)"],
+      },
+      ar: {
+        name: "كربوكسي ميثيل السليلوز (CMC) بدرجة المنظفات",
+        intro:
+          "CMC عامل مانع لإعادة الترسيب: يمنع الأوساخ من العودة إلى القماش أثناء الغسيل ويجعل الأقمشة أنعم. وتُستخدم درجات أخرى في الأغذية وحفر النفط والدهانات والورق.",
+        grade: "NaCMC ≥ 65% · قابل للذوبان في الماء البارد",
+        form: "مسحوق أبيض أو كريمي",
+        packing: "أكياس 25 كغ أو 1000 كغ",
+        uses: ["مسحوق الغسيل والمنظفات", "حفر النفط", "الدهانات والورق", "الأغذية (درجة غذائية)"],
+      },
+    },
+  },
+  {
+    slug: "sodium-sulphate",
+    category: S,
+    code: "Na₂SO₄",
+    cas: "7757-82-6",
+    hs: "2833110000",
+    formula: "Na2SO4",
+    standard: "GB/T 6009",
+    aka: ["sodium sulfate anhydrous", "sodium sulphate 99%", "glauber salt", "detergent filler"],
+    text: {
+      en: {
+        name: "Sodium sulphate anhydrous",
+        intro:
+          "Sodium sulphate is the standard filler in powdered laundry detergents. It is also used in Kraft pulping, glass and textile dyeing.",
+        grade: "Purity ≥ 99% · whiteness ≥ 82",
+        form: "White powder",
+        packing: "25 kg or 50 kg bags; 1,000–1,350 kg jumbo bags",
+        uses: ["Washing powder filler", "Kraft pulp", "Glass", "Textile dyeing"],
+      },
+      fr: {
+        name: "Sulfate de sodium anhydre",
+        intro:
+          "Le sulfate de sodium est la charge standard des lessives en poudre. Il est aussi utilisé dans la pâte kraft, le verre et la teinture textile.",
+        grade: "Pureté ≥ 99 % · blancheur ≥ 82",
+        form: "Poudre blanche",
+        packing: "Sacs de 25 kg ou 50 kg ; big bags de 1 000 à 1 350 kg",
+        uses: ["Charge pour lessive en poudre", "Pâte kraft", "Verre", "Teinture textile"],
+      },
+      ar: {
+        name: "كبريتات الصوديوم اللامائية",
+        intro:
+          "كبريتات الصوديوم هي مادة الحشو المعتادة في مساحيق الغسيل. وتُستخدم أيضاً في صناعة لب الكرافت والزجاج وصباغة النسيج.",
+        grade: "النقاوة ≥ 99% · البياض ≥ 82",
+        form: "مسحوق أبيض",
+        packing: "أكياس 25 كغ أو 50 كغ؛ أكياس جامبو 1000–1350 كغ",
+        uses: ["حشو مسحوق الغسيل", "لب الكرافت", "الزجاج", "صباغة النسيج"],
+      },
+    },
+  },
+  {
+    slug: "color-speckles",
+    category: S,
+    code: "Speckles",
+    hs: "3824999999",
+    aka: ["detergent speckles", "colored speckles", "washing powder speckles"],
+    text: {
+      en: {
+        name: "Color speckles for detergent",
+        intro:
+          "Color speckles are colored granules that give washing powder a distinctive look. They come in many colors and shapes, on a sodium sulphate or other base, matched to your brand.",
+        grade: "Custom colors and shapes",
+        form: "Free-flowing granules",
+        packing: "25 kg bags or 12.5 kg boxes",
+        uses: ["Washing powder", "Powder detergents", "Brand differentiation"],
+      },
+      fr: {
+        name: "Mouchetures colorées pour détergents",
+        intro:
+          "Les mouchetures colorées sont des granulés qui donnent à la lessive en poudre un aspect distinctif. Disponibles en nombreuses couleurs et formes, sur base sulfate de sodium ou autre, selon votre marque.",
+        grade: "Couleurs et formes sur mesure",
+        form: "Granulés fluides",
+        packing: "Sacs de 25 kg ou cartons de 12,5 kg",
+        uses: ["Lessive en poudre", "Détergents en poudre", "Différenciation de marque"],
+      },
+      ar: {
+        name: "حبيبات ملوّنة للمنظفات",
+        intro:
+          "الحبيبات الملوّنة تمنح مسحوق الغسيل مظهراً مميزاً. تتوفر بألوان وأشكال عديدة، على قاعدة كبريتات الصوديوم أو غيرها، بما يناسب علامتكم التجارية.",
+        grade: "ألوان وأشكال حسب الطلب",
+        form: "حبيبات سهلة الانسياب",
+        packing: "أكياس 25 كغ أو صناديق 12.5 كغ",
+        uses: ["مسحوق الغسيل", "المنظفات المسحوقة", "تمييز العلامة التجارية"],
+      },
+    },
+  },
+  {
+    slug: "optical-brightener-cbs-x",
+    category: S,
+    code: "CBS-X",
+    cas: "27344-41-8",
+    hs: "3204200000",
+    formula: "C28H20S2O6Na2",
+    standard: "HG/T 3726",
+    aka: ["optical brightener", "fluorescent whitening agent", "FWA", "CBS-X", "brightener 351"],
+    text: {
+      en: {
+        name: "Optical brightener CBS-X",
+        intro:
+          "CBS-X is a high-performance whitener for cotton, polyamide and protein fibers. It dissolves easily, resists hypochlorite bleach and works at room temperature. Other brighteners such as CF-127, CBS-L, CXT and AMS are also available.",
+        grade: "Typical dosage 0.02% – 0.05% in washing powder",
+        form: "Pistachio-green granules",
+        packing: "25 kg fiber drums or cartons",
+        uses: ["Washing powder", "Liquid detergent", "Soap", "Softeners"],
+      },
+      fr: {
+        name: "Azurant optique CBS-X",
+        intro:
+          "Le CBS-X est un azurant très performant pour le coton, le polyamide et les fibres protéiques. Il se dissout facilement, résiste à l'hypochlorite et agit à température ambiante. D'autres azurants comme CF-127, CBS-L, CXT et AMS sont aussi disponibles.",
+        grade: "Dosage typique 0,02 % – 0,05 % dans la lessive en poudre",
+        form: "Granulés vert pistache",
+        packing: "Fûts carton de 25 kg ou cartons",
+        uses: ["Lessive en poudre", "Détergent liquide", "Savon", "Assouplissants"],
+      },
+      ar: {
+        name: "مبيّض ضوئي CBS-X",
+        intro:
+          "CBS-X مبيّض عالي الأداء للقطن والبولي أميد والألياف البروتينية. يذوب بسهولة ويقاوم مبيّض الهيبوكلوريت ويعمل في درجة حرارة الغرفة. تتوفر أيضاً مبيّضات أخرى مثل CF-127 وCBS-L وCXT وAMS.",
+        grade: "الجرعة المعتادة 0.02% – 0.05% في مسحوق الغسيل",
+        form: "حبيبات خضراء فستقية",
+        packing: "براميل كرتونية 25 كغ أو صناديق",
+        uses: ["مسحوق الغسيل", "المنظفات السائلة", "الصابون", "منعّمات الأقمشة"],
+      },
+    },
+  },
+];
+
+export function getMaterials(category: string): Material[] {
+  return materials.filter((m) => m.category === category);
+}
+
+export function getMaterial(category: string, slug: string): Material | undefined {
+  return materials.find((m) => m.category === category && m.slug === slug);
+}
+
+/** Fills {name} and similar placeholders in dictionary templates. */
+export function fill(t: string, vars: Record<string, string>): string {
+  return t.replace(/\{(\w+)\}/g, (m, k: string) => vars[k] ?? m);
+}
