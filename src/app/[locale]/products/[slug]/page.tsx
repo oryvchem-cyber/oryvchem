@@ -10,6 +10,7 @@ import { pageMetadata, snippet } from "@/lib/seo";
 import { JsonLd } from "@/lib/jsonld";
 import { productPageSchema } from "@/lib/schema";
 import { InquiryForm } from "@/components/InquiryForm";
+import { getMaterials } from "@/lib/materials";
 
 export const revalidate = 300;
 
@@ -40,6 +41,7 @@ export default async function ProductPage({ params }: P) {
   const [d, cats, site] = await Promise.all([getDict(locale), getCategories(locale), getSite()]);
   const c = cats.find((x) => x.slug === slug);
   if (!c) notFound();
+  const mats = getMaterials(slug);
 
   return (
     <>
@@ -85,6 +87,25 @@ export default async function ProductPage({ params }: P) {
           </div>
         </div>
       </section>
+
+      {mats.length > 0 && (
+        <section>
+          <div className="wrap">
+            <h2 className="section-title sm">{d.material.sheets}</h2>
+            <ul className="mat-grid">
+              {mats.map((m) => (
+                <li key={m.slug}>
+                  <Link href={`/${locale}/products/${slug}/${m.slug}`}>
+                    <span className="cat-tab">{m.code}</span>
+                    <strong>{m.text[locale].name.replace(/\s*\(.*\)\s*$/, "")}</strong>
+                    <span className="muted small">{m.text[locale].grade}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <section className="alt">
         <div className="wrap faq-wrap">

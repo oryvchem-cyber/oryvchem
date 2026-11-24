@@ -1,6 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import type { Dict } from "@/i18n/dictionaries";
 import type { Category } from "./categories";
+import type { Material } from "./materials";
 import { SITE } from "./site";
 import { socialLinks, type SiteSettings } from "./settings";
 import { url } from "./seo";
@@ -133,6 +134,48 @@ export function productPageSchema(locale: Locale, c: Category, d: Dict) {
       [c.name, url(locale, `/products/${slug}`)],
     ]),
     faqSchema(c.faq),
+  ];
+}
+
+export function materialPageSchema(locale: Locale, c: Category, m: Material, faq: { q: string; a: string }[], d: Dict) {
+  const t = m.text[locale];
+  const pageUrl = url(locale, `/products/${c.slug}/${m.slug}`);
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: t.name,
+      description: t.intro,
+      inLanguage: locale,
+      isPartOf: { "@id": `${SITE.url}/#website` },
+      publisher: { "@id": orgId },
+      dateModified: SITE.updated,
+      about: {
+        "@type": "ChemicalSubstance",
+        name: t.name,
+        alternateName: [m.code, ...m.aka],
+        ...(m.cas ? { identifier: `CAS ${m.cas}` } : {}),
+        ...(m.formula ? { chemicalComposition: m.formula } : {}),
+        description: t.intro,
+      },
+      mainEntity: {
+        "@type": "Service",
+        "@id": `${pageUrl}#service`,
+        name: t.name,
+        serviceType: c.name,
+        provider: { "@id": orgId },
+        areaServed: "Worldwide",
+      },
+    },
+    breadcrumbSchema([
+      [d.product.home, url(locale)],
+      [d.product.products, `${url(locale)}#categories`],
+      [c.name, url(locale, `/products/${c.slug}`)],
+      [m.code, pageUrl],
+    ]),
+    faqSchema(faq),
   ];
 }
 

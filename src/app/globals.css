@@ -606,3 +606,13 @@ footer a:hover { color: #fff; }
 @media (prefers-reduced-motion: reduce) {
   .rv { opacity: 1 !important; transform: none !important; }
 }
+
+/* Product (material) pages */
+.spec-table { margin: 20px 0 16px; border-top: 1px solid var(--line); }
+.spec-table > div { display: grid; grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr); gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.spec-table dt { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.spec-table dd { margin: 0; font-weight: 600; }
+.mat-grid { list-style: none; padding: 0; margin: 20px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.mat-grid a { display: flex; flex-direction: column; gap: 6px; height: 100%; box-sizing: border-box; padding: 18px 20px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper-hi); text-decoration: none; color: inherit; }
+.mat-grid a:hover, .mat-grid a:focus-visible { border-color: var(--teal-deep); }
+.mat-grid .cat-tab { margin: 0; }

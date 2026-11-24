@@ -3,6 +3,7 @@ import { getDict } from "@/lib/content";
 import { listPublished } from "@/lib/posts";
 import { listPublishedPages } from "@/lib/pages";
 import { getCategories } from "./categories";
+import { getMaterials } from "./materials";
 import { SITE } from "./site";
 import { getSite } from "./settings";
 import { plainText, snippet, url } from "./seo";
@@ -28,6 +29,9 @@ export async function buildLlmsTxt(): Promise<string> {
     lines.push(`- [${d.meta.title}](${url(l)}): ${d.meta.description}`);
     for (const c of cats) {
       lines.push(`- [${c.name}](${url(l, `/products/${c.slug}`)}): ${c.short}`);
+      for (const m of getMaterials(c.slug)) {
+        lines.push(`  - [${m.text[l].name}](${url(l, `/products/${c.slug}/${m.slug}`)}): ${m.text[l].grade}`);
+      }
     }
     for (const p of await listPublished(l)) lines.push(`- [${p.title}](${url(l, `/insights/${p.slug}`)}): ${p.excerpt}`);
     for (const p of await listPublishedPages(l)) lines.push(`- [${p.title}](${url(l, `/${p.slug}`)}): ${p.seo_description || snippet(plainText(p.body))}`);
@@ -50,6 +54,16 @@ export async function buildLlmsFull(): Promise<string> {
       out.push(`${d.product.uses}: ${c.uses.join("; ")}`);
       for (const f of c.faq) out.push(`Q: ${f.q}`, `A: ${f.a}`);
       out.push("");
+      for (const m of getMaterials(c.slug)) {
+        const t = m.text[l];
+        out.push(`#### ${t.name} (${url(l, `/products/${c.slug}/${m.slug}`)})`, t.intro);
+        const facts: [string, string | undefined][] = [
+          [d.material.cas, m.cas], [d.material.hs, m.hs], [d.material.formula, m.formula], [d.material.grade, t.grade],
+          [d.material.form, t.form], [d.material.packing, t.packing], [d.material.standard, m.standard],
+        ];
+        for (const [k, v] of facts) if (v) out.push(`- ${k}: ${v}`);
+        out.push(`${d.material.uses}: ${t.uses.join("; ")}`, "");
+      }
     }
     out.push(`## ${d.process.title}`, ...d.process.steps.map((s, i) => `${i + 1}. ${s.t}: ${s.d}`), "");
     out.push(`## ${d.markets.title}`, d.markets.intro, ...d.markets.regions.map((r) => `- ${r.name}: ${r.countries}`), "");
