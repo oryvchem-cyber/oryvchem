@@ -37,7 +37,7 @@ export const materials: Material[] = [
     category: S,
     code: "LAS-Na",
     cas: "25155-30-0",
-    hs: "3402390000",
+    hs: "3402310000",
     formula: "R-C6H4SO3Na",
     standard: "GB/T 13173",
     aka: ["LAS", "sodium dodecylbenzene sulfonate", "LAS powder"],
@@ -641,6 +641,199 @@ export const materials: Material[] = [
         form: "حبيبات خضراء فستقية",
         packing: "براميل كرتونية 25 كغ أو صناديق",
         uses: ["مسحوق الغسيل", "المنظفات السائلة", "الصابون", "منعّمات الأقمشة"],
+      },
+    },
+  },
+  {
+    slug: "labsa-96",
+    category: S,
+    code: "LABSA",
+    cas: "27176-87-0",
+    hs: "3402310000",
+    formula: "C12H25C6H4SO3H",
+    standard: "GB/T 8447",
+    aka: ["linear alkylbenzene sulfonic acid", "LABSA 96%", "LAS acid", "dodecylbenzene sulfonic acid", "DDBSA"],
+    text: {
+      en: {
+        name: "Linear alkylbenzene sulphonic acid (LABSA 96%)",
+        intro:
+          "LABSA is the acid form of LAS and the most widely used anionic surfactant in detergents. Neutralised with caustic soda, it becomes the main cleaning agent in dishwashing liquid, liquid detergent and washing powder. It is corrosive and normally ships as dangerous goods, so confirm the SDS before booking.",
+        grade: "96% min active matter",
+        form: "Brown viscous liquid",
+        packing: "210–220 kg drums or 1,000 kg IBC",
+        uses: ["Dishwashing liquid", "Liquid detergent", "Washing powder (after neutralisation)", "Industrial and floor cleaners"],
+      },
+      fr: {
+        name: "Acide alkylbenzène sulfonique linéaire (LABSA 96 %)",
+        intro:
+          "Le LABSA est la forme acide du LAS et le tensioactif anionique le plus utilisé dans les détergents. Neutralisé à la soude caustique, il devient l'agent lavant principal des liquides vaisselle, lessives liquides et lessives en poudre. Il est corrosif et voyage normalement comme marchandise dangereuse : vérifiez la FDS avant de réserver.",
+        grade: "96 % min de matière active",
+        form: "Liquide visqueux brun",
+        packing: "Fûts de 210–220 kg ou IBC de 1 000 kg",
+        uses: ["Liquide vaisselle", "Lessive liquide", "Lessive en poudre (après neutralisation)", "Nettoyants industriels et sols"],
+      },
+      ar: {
+        name: "حمض سلفونيك ألكيل بنزين الخطي (LABSA 96%)",
+        intro:
+          "LABSA هو الصورة الحمضية من LAS، وأكثر المواد الفعالة السطحية الأنيونية استخداماً في المنظفات. بعد معادلته بالصودا الكاوية يصبح عامل التنظيف الرئيسي في سائل غسيل الأطباق والمنظفات السائلة ومسحوق الغسيل. وهو مادة أكّالة تُشحن عادةً كبضائع خطرة، لذا تأكد من صحيفة بيانات السلامة قبل الحجز.",
+        grade: "مادة فعالة 96% كحد أدنى",
+        form: "سائل لزج بني اللون",
+        packing: "براميل 210–220 كغ أو حاويات IBC سعة 1000 كغ",
+        uses: ["سائل غسيل الأطباق", "المنظفات السائلة", "مسحوق الغسيل (بعد المعادلة)", "منظفات صناعية ومنظفات الأرضيات"],
+      },
+    },
+  },
+  {
+    slug: "benzalkonium-chloride",
+    category: S,
+    code: "BKC",
+    cas: "8001-54-5",
+    hs: "2923900090",
+    standard: "USP / EP (pharma grades on request)",
+    aka: ["benzalkonium chloride 50%", "BKC 80%", "ADBAC", "quaternary ammonium", "quat disinfectant", "1227"],
+    text: {
+      en: {
+        name: "Benzalkonium chloride (BKC 50% / 80%)",
+        intro:
+          "Benzalkonium chloride is a cationic surfactant (quaternary ammonium compound) used as the disinfecting ingredient in floor cleaners, surface sanitisers and hand washes, and as a biocide in water treatment. Concentrated grades are usually classed as corrosive for transport, so check the SDS before booking.",
+        grade: "50% or 80% active",
+        form: "Colourless to light-yellow liquid",
+        packing: "200 kg drums or 1,000 kg IBC",
+        uses: ["Disinfectant floor cleaners", "Surface sanitisers", "Antibacterial hand wash", "Water treatment biocide"],
+      },
+      fr: {
+        name: "Chlorure de benzalkonium (BKC 50 % / 80 %)",
+        intro:
+          "Le chlorure de benzalkonium est un tensioactif cationique (ammonium quaternaire) utilisé comme agent désinfectant dans les nettoyants sols, les désinfectants de surface et les savons pour les mains, et comme biocide en traitement de l'eau. Les qualités concentrées sont en général classées corrosives pour le transport : vérifiez la FDS avant de réserver.",
+        grade: "50 % ou 80 % de matière active",
+        form: "Liquide incolore à jaune clair",
+        packing: "Fûts de 200 kg ou IBC de 1 000 kg",
+        uses: ["Nettoyants sols désinfectants", "Désinfectants de surface", "Savon antibactérien pour les mains", "Biocide pour traitement de l'eau"],
+      },
+      ar: {
+        name: "كلوريد البنزالكونيوم (BKC 50% / 80%)",
+        intro:
+          "كلوريد البنزالكونيوم مادة فعالة سطحية كاتيونية (مركب أمونيوم رباعي) تُستخدم كمكوّن مطهّر في منظفات الأرضيات ومطهرات الأسطح وغسول اليدين، وكمبيد حيوي في معالجة المياه. الدرجات المركّزة تُصنَّف عادةً كمواد أكّالة في النقل، لذا تحقق من صحيفة بيانات السلامة قبل الحجز.",
+        grade: "مادة فعالة 50% أو 80%",
+        form: "سائل عديم اللون إلى أصفر فاتح",
+        packing: "براميل 200 كغ أو حاويات IBC سعة 1000 كغ",
+        uses: ["منظفات أرضيات مطهّرة", "مطهرات الأسطح", "غسول يدين مضاد للبكتيريا", "مبيد حيوي لمعالجة المياه"],
+      },
+    },
+  },
+  {
+    slug: "glycerin",
+    category: S,
+    code: "Glycerin",
+    cas: "56-81-5",
+    hs: "2905450000",
+    formula: "C3H8O3",
+    standard: "USP / EP / GB/T 13206",
+    aka: ["glycerine", "glycerol", "refined glycerin 99.5%", "USP glycerin"],
+    text: {
+      en: {
+        name: "Refined glycerin 99.5% (glycerol)",
+        intro:
+          "Refined glycerin is a clear, odourless humectant. In liquid soaps, hand washes and dishwashing liquids it keeps skin soft and helps stabilise the formula. Industrial and USP (pharmaceutical/cosmetic) grades are available.",
+        grade: "99.5% min (USP or industrial)",
+        form: "Clear, colourless viscous liquid",
+        packing: "250 kg drums or 1,250 kg IBC",
+        uses: ["Liquid hand soap", "Dishwashing liquid", "Cosmetics and personal care", "Industrial uses (resins, antifreeze)"],
+      },
+      fr: {
+        name: "Glycérine raffinée 99,5 % (glycérol)",
+        intro:
+          "La glycérine raffinée est un humectant limpide et inodore. Dans les savons liquides, savons pour les mains et liquides vaisselle, elle garde la peau douce et aide à stabiliser la formule. Qualités industrielle et USP (pharmaceutique/cosmétique) disponibles.",
+        grade: "99,5 % min (USP ou industrielle)",
+        form: "Liquide visqueux limpide et incolore",
+        packing: "Fûts de 250 kg ou IBC de 1 250 kg",
+        uses: ["Savon liquide pour les mains", "Liquide vaisselle", "Cosmétiques et hygiène", "Usages industriels (résines, antigel)"],
+      },
+      ar: {
+        name: "جلسرين مكرر 99.5% (جليسرول)",
+        intro:
+          "الجلسرين المكرر مادة مرطبة شفافة عديمة الرائحة. يحافظ في الصابون السائل وغسول اليدين وسائل غسيل الأطباق على نعومة البشرة ويساعد على ثبات التركيبة. تتوفر درجة صناعية ودرجة USP (صيدلانية/تجميلية).",
+        grade: "99.5% كحد أدنى (USP أو صناعي)",
+        form: "سائل لزج شفاف عديم اللون",
+        packing: "براميل 250 كغ أو حاويات IBC سعة 1250 كغ",
+        uses: ["صابون اليدين السائل", "سائل غسيل الأطباق", "مستحضرات التجميل والعناية الشخصية", "استخدامات صناعية (الراتنجات، مانع التجمد)"],
+      },
+    },
+  },
+  {
+    slug: "citric-acid",
+    category: S,
+    code: "Citric acid",
+    cas: "77-92-9",
+    hs: "2918140000",
+    formula: "C6H8O7",
+    standard: "BP / USP / FCC / E330",
+    aka: ["citric acid anhydrous", "citric acid monohydrate", "CAS 5949-29-1", "E330"],
+    text: {
+      en: {
+        name: "Citric acid (anhydrous / monohydrate)",
+        intro:
+          "Citric acid is a natural acid used to adjust pH, remove limescale and bind hard-water minerals. In cleaning products it is a common descaler and builder in dishwashing liquids, bathroom cleaners and phosphate-free detergents. Food-grade material is also widely used. Monohydrate has CAS 5949-29-1.",
+        grade: "99.5% min · anhydrous or monohydrate",
+        form: "White crystalline powder or granules",
+        packing: "25 kg bags; 1,000 kg jumbo bags on request",
+        uses: ["Descalers and bathroom cleaners", "Dishwashing liquid (pH adjuster)", "Phosphate-free detergents", "Food and beverages"],
+      },
+      fr: {
+        name: "Acide citrique (anhydre / monohydraté)",
+        intro:
+          "L'acide citrique est un acide naturel utilisé pour ajuster le pH, détartrer et piéger les minéraux de l'eau dure. Dans les produits d'entretien, c'est un détartrant et adjuvant courant des liquides vaisselle, nettoyants salle de bain et lessives sans phosphate. La qualité alimentaire est aussi très utilisée. Le monohydrate a le CAS 5949-29-1.",
+        grade: "99,5 % min · anhydre ou monohydraté",
+        form: "Poudre cristalline ou granulés blancs",
+        packing: "Sacs de 25 kg ; big bags de 1 000 kg sur demande",
+        uses: ["Détartrants et nettoyants salle de bain", "Liquide vaisselle (correcteur de pH)", "Lessives sans phosphate", "Alimentation et boissons"],
+      },
+      ar: {
+        name: "حمض الستريك (لامائي / أحادي الماء)",
+        intro:
+          "حمض الستريك حمض طبيعي يُستخدم لضبط الأس الهيدروجيني وإزالة الترسبات الكلسية وربط أملاح الماء العسر. وهو في منتجات التنظيف مزيل ترسبات ومادة مساعدة شائعة في سائل غسيل الأطباق ومنظفات الحمامات والمنظفات الخالية من الفوسفات. وتُستخدم الدرجة الغذائية أيضاً على نطاق واسع. رقم CAS للصورة أحادية الماء 5949-29-1.",
+        grade: "99.5% كحد أدنى · لامائي أو أحادي الماء",
+        form: "مسحوق بلوري أبيض أو حبيبات",
+        packing: "أكياس 25 كغ؛ أكياس جامبو 1000 كغ عند الطلب",
+        uses: ["مزيلات الترسبات ومنظفات الحمامات", "سائل غسيل الأطباق (ضبط الحموضة)", "منظفات خالية من الفوسفات", "الأغذية والمشروبات"],
+      },
+    },
+  },
+  {
+    slug: "edta",
+    category: S,
+    code: "EDTA",
+    cas: "6381-92-6",
+    hs: "2922499990",
+    formula: "C10H14N2Na2O8·2H2O (EDTA-2Na)",
+    aka: ["EDTA disodium", "EDTA-2Na", "EDTA tetrasodium", "EDTA-4Na", "CAS 64-02-8", "chelating agent"],
+    text: {
+      en: {
+        name: "EDTA disodium / tetrasodium (chelating agent)",
+        intro:
+          "EDTA binds calcium, magnesium and metal ions, so detergents and soaps keep working in hard water and keep their colour and stability. Disodium EDTA (EDTA-2Na) is the usual choice for personal care. Tetrasodium EDTA (EDTA-4Na, CAS 64-02-8) is common in detergents and industrial cleaners.",
+        grade: "99% min (EDTA-2Na / EDTA-4Na powder)",
+        form: "White crystalline powder; EDTA-4Na also as a liquid solution",
+        packing: "25 kg bags; liquid in drums or IBC",
+        uses: ["Liquid detergent and dishwashing liquid", "Liquid soap and shampoo", "Industrial cleaners", "Water treatment"],
+      },
+      fr: {
+        name: "EDTA disodique / tétrasodique (agent chélatant)",
+        intro:
+          "L'EDTA piège le calcium, le magnésium et les ions métalliques : les détergents et savons restent efficaces en eau dure et gardent leur couleur et leur stabilité. L'EDTA disodique (EDTA-2Na) est le choix habituel en cosmétique. L'EDTA tétrasodique (EDTA-4Na, CAS 64-02-8) est courant dans les détergents et nettoyants industriels.",
+        grade: "99 % min (poudre EDTA-2Na / EDTA-4Na)",
+        form: "Poudre cristalline blanche ; EDTA-4Na aussi en solution liquide",
+        packing: "Sacs de 25 kg ; liquide en fûts ou IBC",
+        uses: ["Lessive liquide et liquide vaisselle", "Savon liquide et shampooing", "Nettoyants industriels", "Traitement de l'eau"],
+      },
+      ar: {
+        name: "EDTA ثنائي الصوديوم / رباعي الصوديوم (عامل مخلّب)",
+        intro:
+          "يرتبط EDTA بالكالسيوم والمغنيسيوم وأيونات المعادن، فتبقى المنظفات والصابون فعّالة في الماء العسر وتحافظ على لونها وثباتها. EDTA ثنائي الصوديوم (EDTA-2Na) هو الخيار المعتاد في منتجات العناية الشخصية، أما EDTA رباعي الصوديوم (EDTA-4Na، رقم CAS 64-02-8) فشائع في المنظفات والمنظفات الصناعية.",
+        grade: "99% كحد أدنى (مسحوق EDTA-2Na / EDTA-4Na)",
+        form: "مسحوق بلوري أبيض؛ ويتوفر EDTA-4Na أيضاً كمحلول سائل",
+        packing: "أكياس 25 كغ؛ السائل في براميل أو حاويات IBC",
+        uses: ["المنظفات السائلة وسائل غسيل الأطباق", "الصابون السائل والشامبو", "المنظفات الصناعية", "معالجة المياه"],
       },
     },
   },

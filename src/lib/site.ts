@@ -6,7 +6,7 @@ export const SITE = {
   phone2: "+212 623 362 401",
   whatsapp: "https://wa.me/8615900340902",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "inquiries@oryvchem.com",
-  updated: "2026-11-23",
+  updated: "2026-11-24",
   address: { locality: "Foshan", region: "Guangdong", country: "CN", street: "Nanhai District" },
   geo: { lat: 23.0289, lng: 113.1219 },
 } as const;
