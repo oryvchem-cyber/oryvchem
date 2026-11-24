@@ -331,7 +331,7 @@ export const fr: Dict = {
     faq3a: "Votre application, la qualité ou spécification souhaitée, le volume mensuel et le port de destination. Nous les comparons aux spécifications des fournisseurs et revenons vers vous avec des options.",
     ctaTitle: "Besoin d'un devis pour le {code} ?",
     ctaText: "Envoyez votre spécification, le volume et le port de destination — nous comparons les fournisseurs et répondons par WhatsApp ou e-mail.",
-    more: "Autres matières premières pour détergents",
+    more: "Autres produits : {category}",
   },
   insights: {
     label: "ANALYSES",

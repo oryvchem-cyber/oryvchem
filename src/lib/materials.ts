@@ -30,6 +30,7 @@ export type Material = {
 };
 
 const S: CategorySlug = "surfactants-detergents";
+const W: CategorySlug = "water-treatment";
 
 export const materials: Material[] = [
   {
@@ -834,6 +835,198 @@ export const materials: Material[] = [
         form: "مسحوق بلوري أبيض؛ ويتوفر EDTA-4Na أيضاً كمحلول سائل",
         packing: "أكياس 25 كغ؛ السائل في براميل أو حاويات IBC",
         uses: ["المنظفات السائلة وسائل غسيل الأطباق", "الصابون السائل والشامبو", "المنظفات الصناعية", "معالجة المياه"],
+      },
+    },
+  },
+  {
+    slug: "pac-polyaluminium-chloride",
+    category: W,
+    code: "PAC",
+    cas: "1327-41-9",
+    hs: "2827320000",
+    formula: "[Al2(OH)nCl6-n]m",
+    standard: "GB/T 22627 · GB 15892 (drinking water)",
+    aka: ["polyaluminium chloride", "poly aluminum chloride", "PAC 30%", "PAC powder", "coagulant"],
+    text: {
+      en: {
+        name: "Polyaluminium chloride (PAC)",
+        intro:
+          "PAC is the most widely used coagulant for drinking water and wastewater. It removes turbidity and colour faster than aluminium sulphate, works across a wider pH range and produces less sludge. Drinking-water grades and industrial grades are available.",
+        grade: "28% – 30% Al₂O₃ (powder); liquid grades 10% – 17%",
+        form: "Yellow or white powder; yellow liquid",
+        packing: "25 kg bags; liquid in IBC or bulk",
+        uses: ["Drinking-water clarification", "Municipal and industrial wastewater", "Paper making", "Textile and dyeing effluent"],
+      },
+      fr: {
+        name: "Polychlorure d'aluminium (PAC)",
+        intro:
+          "Le PAC est le coagulant le plus utilisé pour l'eau potable et les eaux usées. Il élimine la turbidité et la couleur plus vite que le sulfate d'aluminium, agit sur une plage de pH plus large et produit moins de boues. Qualités eau potable et industrielle disponibles.",
+        grade: "28 % – 30 % d'Al₂O₃ (poudre) ; qualités liquides 10 % – 17 %",
+        form: "Poudre jaune ou blanche ; liquide jaune",
+        packing: "Sacs de 25 kg ; liquide en IBC ou en vrac",
+        uses: ["Clarification de l'eau potable", "Eaux usées municipales et industrielles", "Papeterie", "Effluents de textile et de teinture"],
+      },
+      ar: {
+        name: "بولي كلوريد الألومنيوم (PAC)",
+        intro:
+          "PAC هو المخثّر الأكثر استخداماً لمياه الشرب ومياه الصرف. يزيل العكارة واللون أسرع من كبريتات الألومنيوم، ويعمل في مدى أوسع من الأس الهيدروجيني، وينتج حمأة أقل. تتوفر درجة لمياه الشرب ودرجة صناعية.",
+        grade: "أكسيد الألومنيوم Al₂O₃ من 28% إلى 30% (مسحوق)؛ الدرجات السائلة 10%–17%",
+        form: "مسحوق أصفر أو أبيض؛ سائل أصفر",
+        packing: "أكياس 25 كغ؛ السائل في حاويات IBC أو سائباً",
+        uses: ["ترويق مياه الشرب", "مياه الصرف البلدية والصناعية", "صناعة الورق", "مخلّفات النسيج والصباغة"],
+      },
+    },
+  },
+  {
+    slug: "aluminium-sulphate",
+    category: W,
+    code: "Alum",
+    cas: "10043-01-3",
+    hs: "2833220000",
+    formula: "Al2(SO4)3·nH2O",
+    standard: "GB/T 31060",
+    aka: ["aluminium sulfate", "aluminum sulfate", "alum", "iron-free aluminium sulphate", "CAS 17927-65-0"],
+    text: {
+      en: {
+        name: "Aluminium sulphate (alum)",
+        intro:
+          "Aluminium sulphate is the traditional, low-cost coagulant for water treatment, and it is also used in paper sizing. Iron-free (low-iron) grades suit white paper and drinking water. The hydrated form has CAS 17927-65-0.",
+        grade: "15.6% – 17% Al₂O₃; iron-free or standard grades",
+        form: "White flakes, granules or powder",
+        packing: "25 kg or 50 kg bags; 1,000 kg jumbo bags",
+        uses: ["Drinking-water and wastewater coagulant", "Paper sizing", "Swimming-pool clarification", "Textile and leather processing"],
+      },
+      fr: {
+        name: "Sulfate d'aluminium (alun)",
+        intro:
+          "Le sulfate d'aluminium est le coagulant traditionnel et économique du traitement de l'eau ; il sert aussi à l'encollage du papier. Les qualités sans fer (basse teneur en fer) conviennent au papier blanc et à l'eau potable. La forme hydratée a le CAS 17927-65-0.",
+        grade: "15,6 % – 17 % d'Al₂O₃ ; qualités sans fer ou standard",
+        form: "Paillettes, granulés ou poudre blancs",
+        packing: "Sacs de 25 kg ou 50 kg ; big bags de 1 000 kg",
+        uses: ["Coagulant pour eau potable et eaux usées", "Encollage du papier", "Clarification des piscines", "Traitement du textile et du cuir"],
+      },
+      ar: {
+        name: "كبريتات الألومنيوم (الشبّة)",
+        intro:
+          "كبريتات الألومنيوم هي المخثّر التقليدي منخفض التكلفة لمعالجة المياه، وتُستخدم أيضاً في تغرية الورق. الدرجات الخالية من الحديد (منخفضة الحديد) مناسبة للورق الأبيض ومياه الشرب. رقم CAS للصورة المائية 17927-65-0.",
+        grade: "أكسيد الألومنيوم Al₂O₃ من 15.6% إلى 17%؛ درجة خالية من الحديد أو قياسية",
+        form: "رقائق أو حبيبات أو مسحوق أبيض",
+        packing: "أكياس 25 كغ أو 50 كغ؛ أكياس جامبو 1000 كغ",
+        uses: ["مخثّر لمياه الشرب ومياه الصرف", "تغرية الورق", "ترويق أحواض السباحة", "معالجة النسيج والجلود"],
+      },
+    },
+  },
+  {
+    slug: "activated-carbon",
+    category: W,
+    code: "Activated carbon",
+    cas: "7440-44-0",
+    hs: "3802100000",
+    standard: "GB/T 7701.2 (coal-based) · GB/T 13803.2 (wood-based)",
+    aka: ["activated charcoal", "granular activated carbon", "GAC", "powdered activated carbon", "PAC carbon", "coconut shell activated carbon"],
+    text: {
+      en: {
+        name: "Activated carbon (granular / powder / pellet)",
+        intro:
+          "Activated carbon removes chlorine, odour, colour and organic pollutants from water by adsorption. Coal-based carbon is the economical choice for municipal and wastewater use. Coconut-shell carbon has finer pores and suits drinking water, RO pretreatment and gold recovery. The iodine value is the main quality figure to compare.",
+        grade: "Iodine value 600 – 1,100 mg/g; coal-based or coconut-shell",
+        form: "Black granules, powder or cylindrical pellets",
+        packing: "25 kg bags; 500 kg jumbo bags",
+        uses: ["Drinking-water filters and RO pretreatment", "Wastewater and effluent treatment", "Air and gas purification", "Gold recovery and decolourisation"],
+      },
+      fr: {
+        name: "Charbon actif (grains / poudre / extrudé)",
+        intro:
+          "Le charbon actif retire le chlore, les odeurs, la couleur et les polluants organiques de l'eau par adsorption. Le charbon à base de houille est le choix économique pour l'eau municipale et les eaux usées. Le charbon de coque de coco, aux pores plus fins, convient à l'eau potable, au prétraitement d'osmose inverse et à la récupération de l'or. L'indice d'iode est le principal critère de comparaison.",
+        grade: "Indice d'iode 600 – 1 100 mg/g ; houille ou coque de coco",
+        form: "Grains, poudre ou granulés cylindriques noirs",
+        packing: "Sacs de 25 kg ; big bags de 500 kg",
+        uses: ["Filtres d'eau potable et prétraitement d'osmose inverse", "Traitement des eaux usées et effluents", "Purification de l'air et des gaz", "Récupération de l'or et décoloration"],
+      },
+      ar: {
+        name: "الكربون المنشّط (حبيبي / مسحوق / أسطواني)",
+        intro:
+          "يزيل الكربون المنشّط الكلور والروائح واللون والملوثات العضوية من الماء بالامتزاز. الكربون المصنوع من الفحم هو الخيار الاقتصادي للمياه البلدية ومياه الصرف، أما كربون قشر جوز الهند فمسامه أدق ويناسب مياه الشرب والمعالجة المسبقة للتناضح العكسي واستخلاص الذهب. ورقم اليود هو أهم مقياس للمقارنة بين الأنواع.",
+        grade: "رقم اليود 600 – 1100 ملغ/غ؛ من الفحم أو قشر جوز الهند",
+        form: "حبيبات أو مسحوق أو كريات أسطوانية سوداء",
+        packing: "أكياس 25 كغ؛ أكياس جامبو 500 كغ",
+        uses: ["فلاتر مياه الشرب والمعالجة المسبقة للتناضح العكسي", "معالجة مياه الصرف والمخلفات", "تنقية الهواء والغازات", "استخلاص الذهب وإزالة الألوان"],
+      },
+    },
+  },
+  {
+    slug: "polyacrylamide-pam",
+    category: W,
+    code: "PAM",
+    cas: "9003-05-8",
+    hs: "3906901000",
+    standard: "GB/T 13940 · GB 17514 (drinking water)",
+    aka: ["polyacrylamide", "anionic polyacrylamide", "cationic polyacrylamide", "APAM", "CPAM", "flocculant"],
+    text: {
+      en: {
+        name: "Polyacrylamide (PAM) flocculant",
+        intro:
+          "Polyacrylamide is a high-molecular-weight flocculant that turns fine particles into large, fast-settling flocs. It is often dosed after PAC. Anionic PAM suits mining and industrial water, cationic PAM is used for sludge dewatering, and nonionic PAM is used for acidic water. Choose the type and charge by jar test.",
+        grade: "Anionic, cationic or nonionic; molecular weight 5 – 25 million",
+        form: "White granular powder; emulsion on request",
+        packing: "25 kg bags",
+        uses: ["Sludge dewatering", "Mining and mineral processing", "Paper making", "Drinking-water and wastewater flocculation"],
+      },
+      fr: {
+        name: "Polyacrylamide (PAM) floculant",
+        intro:
+          "Le polyacrylamide est un floculant de haut poids moléculaire qui transforme les fines particules en gros flocs qui décantent vite ; il est souvent dosé après le PAC. Le PAM anionique convient aux mines et aux eaux industrielles, le PAM cationique à la déshydratation des boues, et le PAM non ionique aux eaux acides. Le type et la charge se choisissent par jar-test.",
+        grade: "Anionique, cationique ou non ionique ; poids moléculaire 5 – 25 millions",
+        form: "Poudre granulaire blanche ; émulsion sur demande",
+        packing: "Sacs de 25 kg",
+        uses: ["Déshydratation des boues", "Mines et traitement des minerais", "Papeterie", "Floculation de l'eau potable et des eaux usées"],
+      },
+      ar: {
+        name: "بولي أكريلاميد (PAM) مادة مندفة",
+        intro:
+          "البولي أكريلاميد مادة مندفة عالية الوزن الجزيئي تحوّل الجسيمات الدقيقة إلى ندف كبيرة سريعة الترسيب، وغالباً ما يُضاف بعد PAC. يناسب PAM الأنيوني التعدين والمياه الصناعية، ويُستخدم PAM الكاتيوني لنزح مياه الحمأة، وPAM غير الأيوني للمياه الحمضية. يُختار النوع والشحنة باختبار الجرة.",
+        grade: "أنيوني أو كاتيوني أو غير أيوني؛ وزن جزيئي 5 – 25 مليون",
+        form: "مسحوق حبيبي أبيض؛ مستحلب عند الطلب",
+        packing: "أكياس 25 كغ",
+        uses: ["نزح مياه الحمأة", "التعدين ومعالجة الخامات", "صناعة الورق", "تنديف مياه الشرب ومياه الصرف"],
+      },
+    },
+  },
+  {
+    slug: "bentonite",
+    category: W,
+    code: "Bentonite",
+    cas: "1302-78-9",
+    hs: "2508100000",
+    standard: "GB/T 20973",
+    aka: ["sodium bentonite", "calcium bentonite", "bentonite clay", "montmorillonite", "drilling bentonite"],
+    text: {
+      en: {
+        name: "Bentonite (sodium / calcium)",
+        intro:
+          "Bentonite is a swelling clay with a high surface area. In water treatment it is a weighting and adsorption aid that helps flocs form and settle in low-turbidity water. It is also widely used in drilling mud, foundry sand, civil-engineering slurry and cat litter.",
+        grade: "Sodium or calcium bentonite; 200 mesh typical",
+        form: "Cream to grey powder or granules",
+        packing: "25 kg or 50 kg bags; 1,000 kg jumbo bags",
+        uses: ["Coagulation aid in water treatment", "Drilling mud", "Foundry sand binder", "Cat litter and civil engineering"],
+      },
+      fr: {
+        name: "Bentonite (sodique / calcique)",
+        intro:
+          "La bentonite est une argile gonflante à grande surface spécifique. En traitement de l'eau, c'est un agent de lestage et d'adsorption qui aide les flocs à se former et à décanter dans les eaux peu turbides. Elle est aussi très utilisée dans les boues de forage, les sables de fonderie, les coulis de génie civil et la litière pour chats.",
+        grade: "Bentonite sodique ou calcique ; 200 mesh en général",
+        form: "Poudre ou granulés crème à gris",
+        packing: "Sacs de 25 kg ou 50 kg ; big bags de 1 000 kg",
+        uses: ["Adjuvant de coagulation en traitement de l'eau", "Boues de forage", "Liant de sable de fonderie", "Litière pour chats et génie civil"],
+      },
+      ar: {
+        name: "البنتونيت (صوديومي / كالسيومي)",
+        intro:
+          "البنتونيت طين قابل للانتفاخ ذو مساحة سطحية كبيرة. يُستخدم في معالجة المياه كمادة مثقّلة وممتزة تساعد على تكوّن الندف وترسيبها في المياه منخفضة العكارة. كما يُستخدم على نطاق واسع في طين الحفر ورمل المسابك وملاط الهندسة المدنية وفضلات القطط.",
+        grade: "بنتونيت صوديومي أو كالسيومي؛ 200 مش عادةً",
+        form: "مسحوق أو حبيبات بلون كريمي إلى رمادي",
+        packing: "أكياس 25 كغ أو 50 كغ؛ أكياس جامبو 1000 كغ",
+        uses: ["مساعد تخثير في معالجة المياه", "طين الحفر", "رابط لرمل المسابك", "فضلات القطط والهندسة المدنية"],
       },
     },
   },
