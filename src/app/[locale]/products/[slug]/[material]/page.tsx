@@ -10,6 +10,7 @@ import { pageMetadata, snippet } from "@/lib/seo";
 import { JsonLd } from "@/lib/jsonld";
 import { materialPageSchema } from "@/lib/schema";
 import { fill, getMaterial, getMaterials, materials } from "@/lib/materials";
+import { materialFaqs } from "@/lib/materialFaqs";
 import { InquiryForm } from "@/components/InquiryForm";
 
 export const revalidate = 300;
@@ -52,6 +53,7 @@ export default async function MaterialPage({ params }: P) {
   const packing = /^\p{Lu}\p{Ll}/u.test(t.packing) ? t.packing[0].toLowerCase() + t.packing.slice(1) : t.packing;
   const vars = { code: m.code, name: t.name, packing };
   const faq = [
+    ...(materialFaqs[m.slug]?.[locale] ?? []),
     { q: fill(d.material.faq1q, vars), a: fill(d.material.faq1a, vars) },
     { q: fill(d.material.faq2q, vars), a: fill(d.material.faq2a, vars) },
     { q: fill(d.material.faq3q, vars), a: fill(d.material.faq3a, vars) },
