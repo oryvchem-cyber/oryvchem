@@ -329,7 +329,7 @@ export const en = {
     faq3a: "Your application, the grade or specification you need, monthly volume and destination port. We match it to suppliers' specifications and come back with options.",
     ctaTitle: "Need a quote for {code}?",
     ctaText: "Send your spec, volume and destination port — we'll compare suppliers and reply on WhatsApp or by email.",
-    more: "More detergent raw materials",
+    more: "More in {category}",
   },
   insights: {
     label: "INSIGHTS",

@@ -142,7 +142,7 @@ export default async function MaterialPage({ params }: P) {
             <InquiryForm t={d.form} locale={locale} defaultProduct={m.code} idPrefix="mq" />
           </div>
           <div>
-            <h2 className="section-title sm">{d.material.more}</h2>
+            <h2 className="section-title sm">{fill(d.material.more, { category: c.name })}</h2>
             <ul className="related">
               {others.map((x) => (
                 <li key={x.slug}>
